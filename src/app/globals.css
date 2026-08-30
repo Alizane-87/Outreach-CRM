@@ -5,18 +5,33 @@
 @tailwind utilities;
 
 :root {
-  --background: #090d16;
-  --foreground: #f1f5f9;
+  --color-canvas: #0a0d10;
+  --color-paper: #111827;
+  --color-surface: #161b22;
+  --color-ink: #f4f2ef;
+  --color-graphite: #78716c;
+  --color-border: #262b32;
+  --color-border-strong: #3b424e;
+  --color-emerald-brand: #065f46;
+  --color-emerald-hover: #047857;
+  --color-emerald-accent: #10b981;
 }
 
 body {
-  background-color: #090d16;
-  color: #f1f5f9;
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #0a0d10;
+  color: #f4f2ef;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
 code, .font-mono {
   font-family: 'JetBrains Mono', monospace;
+}
+
+::selection {
+  background-color: #34d399;
+  color: #064e3b;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -24,13 +39,12 @@ code, .font-mono {
   height: 5px;
 }
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #090d16;
+  background: #0a0d10;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #262b32;
   border-radius: 2px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #3b424e;
 }
-

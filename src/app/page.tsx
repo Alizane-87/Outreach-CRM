@@ -299,14 +299,14 @@ export default function OutreachCRM() {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#090d16] p-6">
-        <div className="max-w-md w-full rounded-xl border border-slate-800 bg-[#0f172a] p-8 shadow-2xl space-y-6 text-center">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-slate-800 border border-slate-700 text-slate-200 font-mono font-bold text-sm tracking-wider">
+      <div className="min-h-screen flex items-center justify-center bg-[#0a0d10] p-6">
+        <div className="max-w-md w-full rounded-xl border border-[#262b32] bg-[#111827] p-8 shadow-2xl space-y-6 text-center">
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-[#161b22] border border-[#262b32] text-[#f4f2ef] font-mono font-bold text-sm tracking-wider">
             AL
           </div>
           <div>
-            <h2 className="text-xl font-bold text-white tracking-tight">Alizane Labs</h2>
-            <p className="text-xs text-slate-400 mt-1 font-mono uppercase tracking-wider">Outbound Conversion Desk</p>
+            <h2 className="text-xl font-bold text-[#f4f2ef] tracking-tight">Alizane Labs</h2>
+            <p className="text-xs text-[#78716c] mt-1 font-mono uppercase tracking-wider">Outbound Conversion Desk</p>
           </div>
           <form onSubmit={handleLogin} className="space-y-4">
             <input
@@ -314,18 +314,18 @@ export default function OutreachCRM() {
               placeholder="Team Access PIN"
               value={pinInput}
               onChange={e => setPinInput(e.target.value)}
-              className="w-full text-center tracking-widest text-sm rounded-lg border border-slate-700 bg-[#090d16] px-4 py-3 text-white outline-none focus:border-emerald-500 font-mono transition-colors"
+              className="w-full text-center tracking-widest text-sm rounded-lg border border-[#262b32] bg-[#0a0d10] px-4 py-3 text-[#f4f2ef] outline-none focus:border-[#065f46] font-mono transition-colors"
               autoFocus
             />
             <button
               type="submit"
-              className="w-full rounded-lg bg-emerald-600 hover:bg-emerald-500 py-3 font-semibold text-white text-xs tracking-wide uppercase transition-all shadow-md"
+              className="w-full rounded-lg bg-[#065f46] hover:bg-[#047857] py-3 font-semibold text-white text-xs tracking-wide uppercase transition-all shadow-md"
             >
               Access Dashboard
             </button>
           </form>
-          <div className="text-[11px] text-slate-500 font-mono">
-            Direct Serverless Neon Postgres Sync
+          <div className="text-[11px] text-[#78716c] font-mono">
+            Sovereign Emerald Architecture • Neon PostgreSQL Sync
           </div>
         </div>
       </div>
@@ -335,20 +335,20 @@ export default function OutreachCRM() {
   const goalPct = Math.min(100, Math.round((stats.sent_today / dailyTarget) * 100));
 
   return (
-    <div className="min-h-screen bg-[#090d16] text-slate-100 p-4 sm:p-8 space-y-6 selection:bg-emerald-500/20 selection:text-emerald-300">
+    <div className="min-h-screen bg-[#0a0d10] text-[#f4f2ef] p-4 sm:p-8 space-y-6">
       <div className="max-w-[1900px] mx-auto space-y-6">
         
         {/* Header */}
-        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800/80 pb-6">
+        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#262b32] pb-6">
           <div className="space-y-1">
-            <div className="inline-flex items-center gap-2 rounded-md border border-emerald-500/30 bg-emerald-950/40 px-2.5 py-0.5 text-[11px] font-mono text-emerald-400">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+            <div className="inline-flex items-center gap-2 rounded-md border border-[#065f46]/50 bg-[#065f46]/20 px-2.5 py-0.5 text-[11px] font-mono text-[#34d399]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#34d399]"></span>
               <span>PostgreSQL Connected</span>
             </div>
-            <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
+            <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#f4f2ef]">
               US Restoration Contractors — Outbound Intelligence Desk
             </h1>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-[#78716c]">
               Active Meta Ads Intelligence &amp; Multi-Channel Conversion Workflow
             </p>
           </div>
@@ -359,25 +359,25 @@ export default function OutreachCRM() {
                 fetchWeeklyReport();
                 setReportModalOpen(true);
               }}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-700 bg-slate-800/80 hover:bg-slate-700 px-3.5 py-2 text-slate-200 font-medium transition-all"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-[#262b32] bg-[#111827] hover:bg-[#161b22] px-3.5 py-2 text-[#f4f2ef] font-medium transition-all"
             >
               <span>Weekly Reports</span>
             </button>
             <button
               onClick={() => setDrawerOpen(true)}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-700 bg-slate-800/80 hover:bg-slate-700 px-3.5 py-2 text-slate-200 font-medium transition-all"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-[#262b32] bg-[#111827] hover:bg-[#161b22] px-3.5 py-2 text-[#f4f2ef] font-medium transition-all"
             >
               <span>Scripts &amp; Objections</span>
             </button>
             <button
               onClick={exportCsv}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-emerald-500/50 bg-emerald-950/60 hover:bg-emerald-900/80 px-3.5 py-2 text-emerald-300 font-medium transition-all"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-[#065f46] bg-[#065f46]/30 hover:bg-[#065f46]/50 px-3.5 py-2 text-[#34d399] font-medium transition-all"
             >
               <span>Export CSV</span>
             </button>
             <button
               onClick={fetchLeads}
-              className="inline-flex items-center rounded-lg border border-slate-800 bg-slate-900 hover:bg-slate-800 px-3 py-2 text-slate-400 hover:text-white transition-all text-xs font-mono"
+              className="inline-flex items-center rounded-lg border border-[#262b32] bg-[#111827] hover:bg-[#161b22] px-3 py-2 text-[#78716c] hover:text-[#f4f2ef] transition-all text-xs font-mono"
               title="Refresh Data"
             >
               Refresh
@@ -386,23 +386,23 @@ export default function OutreachCRM() {
         </div>
 
         {/* Daily Goal & Streak Progress */}
-        <div className="rounded-xl border border-slate-800 bg-[#0f172a] p-4 shadow-sm">
+        <div className="rounded-xl border border-[#262b32] bg-[#111827] p-4 shadow-sm">
           <div className="flex flex-wrap items-center justify-between gap-4 mb-2.5">
             <div>
-              <div className="text-xs font-bold text-white font-mono uppercase tracking-wider">
+              <div className="text-xs font-bold text-[#f4f2ef] font-mono uppercase tracking-wider">
                 Daily Outbound Progress
               </div>
-              <div className="text-xs text-slate-400 font-mono mt-0.5">
+              <div className="text-xs text-[#78716c] font-mono mt-0.5">
                 {stats.sent_today} of {dailyTarget} Outbound Contacts ({goalPct}%)
               </div>
             </div>
 
             <div className="flex items-center gap-2 text-xs font-mono">
-              <span className="text-slate-400">Target:</span>
+              <span className="text-[#78716c]">Target:</span>
               <select
                 value={dailyTarget}
                 onChange={e => setDailyTarget(Number(e.target.value))}
-                className="bg-[#090d16] border border-slate-700 rounded px-2.5 py-1 text-slate-200 outline-none"
+                className="bg-[#0a0d10] border border-[#262b32] rounded px-2.5 py-1 text-[#f4f2ef] outline-none"
               >
                 <option value={15}>15 / day</option>
                 <option value={30}>30 / day</option>
@@ -412,9 +412,9 @@ export default function OutreachCRM() {
             </div>
           </div>
 
-          <div className="w-full bg-[#090d16] rounded-full h-2 overflow-hidden border border-slate-800">
+          <div className="w-full bg-[#0a0d10] rounded-full h-2 overflow-hidden border border-[#262b32]">
             <div
-              className="bg-emerald-500 h-2 rounded-full transition-all duration-300"
+              className="bg-[#10b981] h-2 rounded-full transition-all duration-300"
               style={{ width: `${goalPct}%` }}
             ></div>
           </div>
@@ -426,32 +426,32 @@ export default function OutreachCRM() {
             onClick={() => setStatusFilter('all')}
             className={`rounded-lg border p-3 text-left transition-all ${
               statusFilter === 'all'
-                ? 'border-slate-500 bg-slate-800/90 text-white'
-                : 'border-slate-800/90 bg-[#0f172a] text-slate-400 hover:border-slate-700'
+                ? 'border-[#3b424e] bg-[#161b22] text-[#f4f2ef]'
+                : 'border-[#262b32] bg-[#111827] text-[#78716c] hover:border-[#3b424e]'
             }`}
           >
-            <div className="text-[11px] text-slate-400 uppercase tracking-wider">All Leads</div>
-            <div className="text-lg font-bold text-white mt-1">{stats.total}</div>
+            <div className="text-[11px] text-[#78716c] uppercase tracking-wider">All Leads</div>
+            <div className="text-lg font-bold text-[#f4f2ef] mt-1">{stats.total}</div>
           </button>
 
           <button
             onClick={() => setStatusFilter('to_contact')}
             className={`rounded-lg border p-3 text-left transition-all ${
               statusFilter === 'to_contact'
-                ? 'border-slate-400 bg-slate-800/90 text-white'
-                : 'border-slate-800/90 bg-[#0f172a] text-slate-400 hover:border-slate-700'
+                ? 'border-[#3b424e] bg-[#161b22] text-[#f4f2ef]'
+                : 'border-[#262b32] bg-[#111827] text-[#78716c] hover:border-[#3b424e]'
             }`}
           >
-            <div className="text-[11px] text-slate-400 uppercase tracking-wider">To Contact</div>
-            <div className="text-lg font-bold text-slate-200 mt-1">{stats.to_contact}</div>
+            <div className="text-[11px] text-[#78716c] uppercase tracking-wider">To Contact</div>
+            <div className="text-lg font-bold text-[#f4f2ef] mt-1">{stats.to_contact}</div>
           </button>
 
           <button
             onClick={() => setStatusFilter('dm_sent')}
             className={`rounded-lg border p-3 text-left transition-all ${
               statusFilter === 'dm_sent'
-                ? 'border-sky-500 bg-sky-950/50 text-sky-200'
-                : 'border-slate-800/90 bg-[#0f172a] text-slate-400 hover:border-slate-700'
+                ? 'border-sky-500/60 bg-sky-950/40 text-sky-200'
+                : 'border-[#262b32] bg-[#111827] text-[#78716c] hover:border-[#3b424e]'
             }`}
           >
             <div className="text-[11px] text-sky-400 uppercase tracking-wider">Outbound Sent</div>
@@ -462,20 +462,20 @@ export default function OutreachCRM() {
             onClick={() => setStatusFilter('replied')}
             className={`rounded-lg border p-3 text-left transition-all ${
               statusFilter === 'replied'
-                ? 'border-emerald-500 bg-emerald-950/50 text-emerald-200'
-                : 'border-slate-800/90 bg-[#0f172a] text-slate-400 hover:border-slate-700'
+                ? 'border-[#065f46] bg-[#065f46]/30 text-[#34d399]'
+                : 'border-[#262b32] bg-[#111827] text-[#78716c] hover:border-[#3b424e]'
             }`}
           >
-            <div className="text-[11px] text-emerald-400 uppercase tracking-wider">In Discussion</div>
-            <div className="text-lg font-bold text-emerald-300 mt-1">{stats.replied}</div>
+            <div className="text-[11px] text-[#34d399] uppercase tracking-wider">In Discussion</div>
+            <div className="text-lg font-bold text-[#34d399] mt-1">{stats.replied}</div>
           </button>
 
           <button
             onClick={() => setStatusFilter('follow_up')}
             className={`rounded-lg border p-3 text-left transition-all ${
               statusFilter === 'follow_up'
-                ? 'border-amber-500 bg-amber-950/50 text-amber-200'
-                : 'border-slate-800/90 bg-[#0f172a] text-slate-400 hover:border-slate-700'
+                ? 'border-[#d97706]/60 bg-[#d97706]/20 text-amber-200'
+                : 'border-[#262b32] bg-[#111827] text-[#78716c] hover:border-[#3b424e]'
             }`}
           >
             <div className="text-[11px] text-amber-400 uppercase tracking-wider">Follow-Up</div>
@@ -486,8 +486,8 @@ export default function OutreachCRM() {
             onClick={() => setStatusFilter('booked')}
             className={`rounded-lg border p-3 text-left transition-all ${
               statusFilter === 'booked'
-                ? 'border-indigo-500 bg-indigo-950/50 text-indigo-200'
-                : 'border-slate-800/90 bg-[#0f172a] text-slate-400 hover:border-slate-700'
+                ? 'border-indigo-500/60 bg-indigo-950/40 text-indigo-200'
+                : 'border-[#262b32] bg-[#111827] text-[#78716c] hover:border-[#3b424e]'
             }`}
           >
             <div className="text-[11px] text-indigo-400 uppercase tracking-wider">Demo Booked</div>
@@ -503,14 +503,14 @@ export default function OutreachCRM() {
               placeholder="Search company, location, domain, or ad hook..."
               value={search}
               onChange={e => setSearch(e.target.value)}
-              className="w-full rounded-lg border border-slate-800 bg-[#0f172a] px-3.5 py-2.5 text-xs text-white placeholder-slate-500 outline-none focus:border-slate-600 transition-colors"
+              className="w-full rounded-lg border border-[#262b32] bg-[#111827] px-3.5 py-2.5 text-xs text-[#f4f2ef] placeholder-[#78716c] outline-none focus:border-[#3b424e] transition-colors"
             />
           </div>
 
           <select
             value={repFilter}
             onChange={e => setRepFilter(e.target.value)}
-            className="bg-[#0f172a] border border-slate-800 rounded-lg px-3.5 py-2.5 text-xs text-slate-300 outline-none font-mono"
+            className="bg-[#111827] border border-[#262b32] rounded-lg px-3.5 py-2.5 text-xs text-[#f4f2ef] outline-none font-mono"
           >
             <option value="all">All Team Reps</option>
             <option value="partner_a">Rep 1 (You)</option>
@@ -521,7 +521,7 @@ export default function OutreachCRM() {
           <select
             value={nicheFilter}
             onChange={e => setNicheFilter(e.target.value)}
-            className="bg-[#0f172a] border border-slate-800 rounded-lg px-3.5 py-2.5 text-xs text-slate-300 outline-none font-mono"
+            className="bg-[#111827] border border-[#262b32] rounded-lg px-3.5 py-2.5 text-xs text-[#f4f2ef] outline-none font-mono"
           >
             <option value="all">All Niches</option>
             <option value="mold">Mold Remediation</option>
@@ -531,11 +531,11 @@ export default function OutreachCRM() {
         </div>
 
         {/* Leads Table */}
-        <div className="rounded-xl border border-slate-800 bg-[#0f172a] overflow-hidden shadow-sm">
+        <div className="rounded-xl border border-[#262b32] bg-[#111827] overflow-hidden shadow-sm">
           <div className="overflow-x-auto custom-scrollbar">
             <table className="w-full text-left border-collapse text-xs">
               <thead>
-                <tr className="border-b border-slate-800 bg-[#090d16] font-mono text-[11px] uppercase tracking-wider text-slate-400">
+                <tr className="border-b border-[#262b32] bg-[#0a0d10] font-mono text-[11px] uppercase tracking-wider text-[#78716c]">
                   <th className="py-3 px-3 text-center">#</th>
                   <th className="py-3 px-3">Pipeline Status</th>
                   <th className="py-3 px-3">Assigned Rep</th>
@@ -549,30 +549,30 @@ export default function OutreachCRM() {
                   <th className="py-3 px-3 text-center">Meta Ads</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/50 font-sans">
+              <tbody className="divide-y divide-[#262b32]/60 font-sans">
                 {loading ? (
                   <tr>
-                    <td colSpan={11} className="py-12 text-center text-slate-500 font-mono">
+                    <td colSpan={11} className="py-12 text-center text-[#78716c] font-mono">
                       Loading contractor records from database...
                     </td>
                   </tr>
                 ) : filteredLeads.length === 0 ? (
                   <tr>
-                    <td colSpan={11} className="py-12 text-center text-slate-500 font-mono">
+                    <td colSpan={11} className="py-12 text-center text-[#78716c] font-mono">
                       No records match the current filter selection.
                     </td>
                   </tr>
                 ) : (
                   filteredLeads.map((lead, idx) => {
-                    let statusSelectClass = 'bg-[#090d16] text-slate-300 border-slate-700';
+                    let statusSelectClass = 'bg-[#0a0d10] text-[#f4f2ef] border-[#262b32]';
                     if (lead.status === 'dm_sent') statusSelectClass = 'bg-sky-950/60 text-sky-300 border-sky-600/60';
-                    if (lead.status === 'replied') statusSelectClass = 'bg-emerald-950/60 text-emerald-300 border-emerald-600/60';
-                    if (lead.status === 'follow_up') statusSelectClass = 'bg-amber-950/60 text-amber-300 border-amber-600/60';
+                    if (lead.status === 'replied') statusSelectClass = 'bg-[#065f46]/30 text-[#34d399] border-[#065f46]';
+                    if (lead.status === 'follow_up') statusSelectClass = 'bg-[#d97706]/20 text-amber-300 border-[#d97706]/50';
                     if (lead.status === 'booked') statusSelectClass = 'bg-indigo-950/60 text-indigo-300 border-indigo-600/60';
 
                     return (
-                      <tr key={lead.id} className="hover:bg-slate-800/30 transition-colors border-b border-slate-800/40">
-                        <td className="py-3 px-3 font-mono text-slate-500 text-center">{idx + 1}</td>
+                      <tr key={lead.id} className="hover:bg-[#161b22]/50 transition-colors border-b border-[#262b32]/40">
+                        <td className="py-3 px-3 font-mono text-[#78716c] text-center">{idx + 1}</td>
                         <td className="py-3 px-3 whitespace-nowrap">
                           <select
                             value={lead.status}
@@ -592,7 +592,7 @@ export default function OutreachCRM() {
                           <select
                             value={lead.assigned_to || 'unassigned'}
                             onChange={e => updateLead(lead.id, { assigned_to: e.target.value })}
-                            className="text-[11px] font-mono rounded bg-[#090d16] border border-slate-800 px-2 py-1 text-slate-300 outline-none"
+                            className="text-[11px] font-mono rounded bg-[#0a0d10] border border-[#262b32] px-2 py-1 text-[#f4f2ef] outline-none"
                           >
                             <option value="unassigned">— None —</option>
                             <option value="partner_a">Rep 1 (You)</option>
@@ -601,26 +601,26 @@ export default function OutreachCRM() {
                         </td>
 
                         <td className="py-3 px-3 whitespace-nowrap">
-                          <div className="text-xs font-bold text-white">{lead.company_name}</div>
+                          <div className="text-xs font-bold text-[#f4f2ef]">{lead.company_name}</div>
                           <div>
                             {lead.domain && lead.domain !== 'N/A' ? (
-                              <a href={lead.destination_url || '#'} target="_blank" className="font-mono text-[11px] text-emerald-400 hover:underline">
+                              <a href={lead.destination_url || '#'} target="_blank" className="font-mono text-[11px] text-[#34d399] hover:underline">
                                 {lead.domain}
                               </a>
                             ) : (
-                              <span className="font-mono text-[11px] text-slate-500">Direct Ad Lead</span>
+                              <span className="font-mono text-[11px] text-[#78716c]">Direct Ad Lead</span>
                             )}
                           </div>
                         </td>
 
                         <td className="py-3 px-3 whitespace-nowrap">
-                          <span className="inline-flex items-center rounded bg-slate-800/80 px-2 py-0.5 font-mono text-[11px] text-slate-300 border border-slate-700/60">
+                          <span className="inline-flex items-center rounded bg-[#161b22] px-2 py-0.5 font-mono text-[11px] text-[#f4f2ef] border border-[#262b32]">
                             {lead.location}
                           </span>
                         </td>
 
                         <td className="py-3 px-3 whitespace-nowrap text-center">
-                          <span className="inline-flex items-center justify-center rounded bg-slate-800 border border-slate-700 px-2 py-0.5 font-mono text-[11px] text-slate-300">
+                          <span className="inline-flex items-center justify-center rounded bg-[#161b22] border border-[#262b32] px-2 py-0.5 font-mono text-[11px] text-[#f4f2ef]">
                             {lead.active_ads_count} Ads
                           </span>
                         </td>
@@ -631,7 +631,7 @@ export default function OutreachCRM() {
                               href={lead.ig_dm_url}
                               target="_blank"
                               onClick={() => updateLead(lead.id, { status: 'dm_sent' })}
-                              className="inline-flex items-center rounded border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium px-2 py-1 transition-colors"
+                              className="inline-flex items-center rounded border border-[#262b32] bg-[#161b22] hover:bg-[#262b32] text-[#f4f2ef] font-medium px-2 py-1 transition-colors"
                               title="Open Instagram DM"
                             >
                               IG
@@ -640,7 +640,7 @@ export default function OutreachCRM() {
                               href={lead.fb_messenger_url}
                               target="_blank"
                               onClick={() => updateLead(lead.id, { status: 'dm_sent' })}
-                              className="inline-flex items-center rounded border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium px-2 py-1 transition-colors"
+                              className="inline-flex items-center rounded border border-[#262b32] bg-[#161b22] hover:bg-[#262b32] text-[#f4f2ef] font-medium px-2 py-1 transition-colors"
                               title="Open Facebook Messenger"
                             >
                               FB
@@ -648,14 +648,14 @@ export default function OutreachCRM() {
                             <a
                               href={lead.linkedin_search_url}
                               target="_blank"
-                              className="inline-flex items-center rounded border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium px-2 py-1 transition-colors"
+                              className="inline-flex items-center rounded border border-[#262b32] bg-[#161b22] hover:bg-[#262b32] text-[#f4f2ef] font-medium px-2 py-1 transition-colors"
                               title="Search Owner on LinkedIn"
                             >
                               LinkedIn
                             </a>
                             <button
                               onClick={() => copyToClipboard(lead.dm_pitch_script, 'Pitch Script Copied')}
-                              className="bg-[#090d16] hover:bg-slate-800 text-slate-400 hover:text-slate-200 px-2 py-1 rounded border border-slate-800 text-[10px] transition-colors"
+                              className="bg-[#0a0d10] hover:bg-[#161b22] text-[#78716c] hover:text-[#f4f2ef] px-2 py-1 rounded border border-[#262b32] text-[10px] transition-colors"
                               title="Copy Conversion Desk Pitch"
                             >
                               Pitch
@@ -663,12 +663,12 @@ export default function OutreachCRM() {
                           </div>
                         </td>
 
-                        <td className="py-3 px-3 font-mono text-[11px] text-slate-300 max-w-xs truncate">
+                        <td className="py-3 px-3 font-mono text-[11px] text-[#f4f2ef] max-w-xs truncate">
                           {lead.offer_type}
                         </td>
 
-                        <td className="py-3 px-3 text-slate-300 max-w-sm">
-                          <div className="line-clamp-2 leading-relaxed text-xs text-slate-400">
+                        <td className="py-3 px-3 text-[#f4f2ef] max-w-sm">
+                          <div className="line-clamp-2 leading-relaxed text-xs text-[#a8a29e]">
                             {lead.primary_hook}
                           </div>
                         </td>
@@ -681,8 +681,8 @@ export default function OutreachCRM() {
                             }}
                             className={`px-2.5 py-1 rounded font-mono text-[10px] border transition-colors ${
                               lead.notes && lead.notes.length > 0
-                                ? 'bg-slate-800 border-slate-600 text-slate-200'
-                                : 'bg-[#090d16] border-slate-800 text-slate-500 hover:text-slate-300'
+                                ? 'bg-[#161b22] border-[#3b424e] text-[#f4f2ef]'
+                                : 'bg-[#0a0d10] border-[#262b32] text-[#78716c] hover:text-[#f4f2ef]'
                             }`}
                           >
                             {lead.notes && lead.notes.length > 0 ? 'Notes' : '+ Note'}
@@ -693,7 +693,7 @@ export default function OutreachCRM() {
                           <a
                             href={lead.ad_library_url}
                             target="_blank"
-                            className="inline-flex items-center rounded border border-slate-800 bg-[#090d16] hover:bg-slate-800 px-2 py-1 text-slate-400 hover:text-slate-200 font-mono text-[10px] transition-colors"
+                            className="inline-flex items-center rounded border border-[#262b32] bg-[#0a0d10] hover:bg-[#161b22] px-2 py-1 text-[#78716c] hover:text-[#f4f2ef] font-mono text-[10px] transition-colors"
                           >
                             Meta Ads
                           </a>
@@ -710,28 +710,28 @@ export default function OutreachCRM() {
 
       {/* Weekly Performance Report & Team Logs Modal */}
       {reportModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#090d16]/85 backdrop-blur-sm p-4 overflow-y-auto">
-          <div className="max-w-4xl w-full rounded-xl border border-slate-800 bg-[#0f172a] p-6 sm:p-8 space-y-6 shadow-2xl my-8">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0a0d10]/85 backdrop-blur-sm p-4 overflow-y-auto">
+          <div className="max-w-4xl w-full rounded-xl border border-[#262b32] bg-[#111827] p-6 sm:p-8 space-y-6 shadow-2xl my-8">
+            <div className="flex items-center justify-between border-b border-[#262b32] pb-4">
               <div>
-                <h3 className="font-bold text-white text-base sm:text-lg">Weekly Performance &amp; Activity Log</h3>
-                <p className="text-xs font-mono text-slate-400">Team Analytics &amp; Verified Audit Trail</p>
+                <h3 className="font-bold text-[#f4f2ef] text-base sm:text-lg">Weekly Performance &amp; Activity Log</h3>
+                <p className="text-xs font-mono text-[#78716c]">Team Analytics &amp; Verified Audit Trail</p>
               </div>
               <div className="flex items-center gap-2">
                 <button
                   onClick={exportWeeklyCsv}
-                  className="bg-emerald-600 hover:bg-emerald-500 text-white font-mono text-xs font-medium px-3 py-1.5 rounded shadow transition-all"
+                  className="bg-[#065f46] hover:bg-[#047857] text-white font-mono text-xs font-medium px-3 py-1.5 rounded shadow transition-all"
                 >
                   Export CSV
                 </button>
-                <button onClick={() => setReportModalOpen(false)} className="text-slate-400 hover:text-white font-mono text-base px-2">
+                <button onClick={() => setReportModalOpen(false)} className="text-[#78716c] hover:text-[#f4f2ef] font-mono text-base px-2">
                   Close
                 </button>
               </div>
             </div>
 
             {reportLoading || !weeklyReport ? (
-              <div className="py-12 text-center text-slate-400 font-mono text-xs">
+              <div className="py-12 text-center text-[#78716c] font-mono text-xs">
                 Generating summary from database...
               </div>
             ) : (
@@ -739,27 +739,27 @@ export default function OutreachCRM() {
                 
                 {/* 4 Top KPI Cards */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono">
-                  <div className="rounded-lg border border-slate-800 bg-[#090d16] p-3.5">
-                    <div className="text-[10px] text-slate-400 uppercase tracking-wider">Outbound (7 Days)</div>
-                    <div className="text-xl font-bold text-white mt-1">{weeklyReport.weekly.dms_sent_week || 0}</div>
+                  <div className="rounded-lg border border-[#262b32] bg-[#0a0d10] p-3.5">
+                    <div className="text-[10px] text-[#78716c] uppercase tracking-wider">Outbound (7 Days)</div>
+                    <div className="text-xl font-bold text-[#f4f2ef] mt-1">{weeklyReport.weekly.dms_sent_week || 0}</div>
                   </div>
-                  <div className="rounded-lg border border-slate-800 bg-[#090d16] p-3.5">
-                    <div className="text-[10px] text-slate-400 uppercase tracking-wider">In Discussion</div>
-                    <div className="text-xl font-bold text-emerald-400 mt-1">{weeklyReport.weekly.replies_week || 0}</div>
+                  <div className="rounded-lg border border-[#262b32] bg-[#0a0d10] p-3.5">
+                    <div className="text-[10px] text-[#78716c] uppercase tracking-wider">In Discussion</div>
+                    <div className="text-xl font-bold text-[#34d399] mt-1">{weeklyReport.weekly.replies_week || 0}</div>
                   </div>
-                  <div className="rounded-lg border border-slate-800 bg-[#090d16] p-3.5">
-                    <div className="text-[10px] text-slate-400 uppercase tracking-wider">Demos Booked</div>
+                  <div className="rounded-lg border border-[#262b32] bg-[#0a0d10] p-3.5">
+                    <div className="text-[10px] text-[#78716c] uppercase tracking-wider">Demos Booked</div>
                     <div className="text-xl font-bold text-indigo-400 mt-1">{weeklyReport.weekly.booked_week || 0}</div>
                   </div>
-                  <div className="rounded-lg border border-slate-800 bg-[#090d16] p-3.5">
-                    <div className="text-[10px] text-slate-400 uppercase tracking-wider">Notes Logged</div>
-                    <div className="text-xl font-bold text-slate-300 mt-1">{weeklyReport.weekly.notes_week || 0}</div>
+                  <div className="rounded-lg border border-[#262b32] bg-[#0a0d10] p-3.5">
+                    <div className="text-[10px] text-[#78716c] uppercase tracking-wider">Notes Logged</div>
+                    <div className="text-xl font-bold text-[#f4f2ef] mt-1">{weeklyReport.weekly.notes_week || 0}</div>
                   </div>
                 </div>
 
                 {/* Rep Breakdown */}
                 <div className="space-y-2.5">
-                  <h4 className="font-mono text-xs font-bold text-slate-300 uppercase tracking-wider">
+                  <h4 className="font-mono text-xs font-bold text-[#a8a29e] uppercase tracking-wider">
                     Rep Workload Distribution
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-xs">
@@ -767,26 +767,26 @@ export default function OutreachCRM() {
                       const repLabel = r.rep === 'partner_a' ? 'Rep 1 (You)' : r.rep === 'partner_b' ? 'Rep 2 (Partner)' : 'Unassigned';
 
                       return (
-                        <div key={r.rep} className="rounded-lg border border-slate-800 bg-[#090d16] p-3.5 space-y-2.5">
-                          <div className="flex items-center justify-between font-bold text-white">
+                        <div key={r.rep} className="rounded-lg border border-[#262b32] bg-[#0a0d10] p-3.5 space-y-2.5">
+                          <div className="flex items-center justify-between font-bold text-[#f4f2ef]">
                             <span>{repLabel}</span>
-                            <span className="text-xs text-slate-400">{r.total_assigned} Assigned</span>
+                            <span className="text-xs text-[#78716c]">{r.total_assigned} Assigned</span>
                           </div>
                           <div className="grid grid-cols-4 gap-2 text-center text-[10px]">
-                            <div className="bg-[#0f172a] rounded p-2 border border-slate-800">
-                              <div className="text-slate-400">Sent</div>
-                              <div className="font-bold text-white text-xs mt-0.5">{r.dms_sent}</div>
+                            <div className="bg-[#111827] rounded p-2 border border-[#262b32]">
+                              <div className="text-[#78716c]">Sent</div>
+                              <div className="font-bold text-[#f4f2ef] text-xs mt-0.5">{r.dms_sent}</div>
                             </div>
-                            <div className="bg-[#0f172a] rounded p-2 border border-slate-800">
-                              <div className="text-slate-400">Convo</div>
-                              <div className="font-bold text-emerald-400 text-xs mt-0.5">{r.replied}</div>
+                            <div className="bg-[#111827] rounded p-2 border border-[#262b32]">
+                              <div className="text-[#78716c]">Convo</div>
+                              <div className="font-bold text-[#34d399] text-xs mt-0.5">{r.replied}</div>
                             </div>
-                            <div className="bg-[#0f172a] rounded p-2 border border-slate-800">
-                              <div className="text-slate-400">Follow-Up</div>
+                            <div className="bg-[#111827] rounded p-2 border border-[#262b32]">
+                              <div className="text-[#78716c]">Follow-Up</div>
                               <div className="font-bold text-amber-400 text-xs mt-0.5">{r.follow_up}</div>
                             </div>
-                            <div className="bg-[#0f172a] rounded p-2 border border-slate-800">
-                              <div className="text-slate-400">Booked</div>
+                            <div className="bg-[#111827] rounded p-2 border border-[#262b32]">
+                              <div className="text-[#78716c]">Booked</div>
                               <div className="font-bold text-indigo-400 text-xs mt-0.5">{r.booked}</div>
                             </div>
                           </div>
@@ -798,10 +798,10 @@ export default function OutreachCRM() {
 
                 {/* Activity Trail Feed */}
                 <div className="space-y-2.5">
-                  <h4 className="font-mono text-xs font-bold text-slate-300 uppercase tracking-wider">
+                  <h4 className="font-mono text-xs font-bold text-[#a8a29e] uppercase tracking-wider">
                     Recent Activity Trail
                   </h4>
-                  <div className="rounded-lg border border-slate-800 bg-[#090d16] p-3 max-h-56 overflow-y-auto custom-scrollbar space-y-2 font-mono text-[11px]">
+                  <div className="rounded-lg border border-[#262b32] bg-[#0a0d10] p-3 max-h-56 overflow-y-auto custom-scrollbar space-y-2 font-mono text-[11px]">
                     {weeklyReport.recent && weeklyReport.recent.length > 0 ? (
                       weeklyReport.recent.map(act => {
                         const dateStr = new Date(act.created_at).toLocaleString([], { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
@@ -817,18 +817,18 @@ export default function OutreachCRM() {
                         }
 
                         return (
-                          <div key={act.id} className="flex items-center justify-between border-b border-slate-800/40 pb-1.5 last:border-0">
+                          <div key={act.id} className="flex items-center justify-between border-b border-[#262b32]/40 pb-1.5 last:border-0">
                             <div className="flex items-center gap-2 truncate">
-                              <span className="px-1.5 py-0.2 rounded bg-slate-800 text-slate-300 text-[10px] border border-slate-700">{repBadge}</span>
-                              <span className="font-bold text-white">{act.company_name}</span>
-                              <span className="text-slate-400">{actionDesc}</span>
+                              <span className="px-1.5 py-0.2 rounded bg-[#161b22] text-[#f4f2ef] text-[10px] border border-[#262b32]">{repBadge}</span>
+                              <span className="font-bold text-[#f4f2ef]">{act.company_name}</span>
+                              <span className="text-[#78716c]">{actionDesc}</span>
                             </div>
-                            <span className="text-slate-500 text-[10px] whitespace-nowrap ml-2">{dateStr}</span>
+                            <span className="text-[#78716c] text-[10px] whitespace-nowrap ml-2">{dateStr}</span>
                           </div>
                         );
                       })
                     ) : (
-                      <div className="text-center py-4 text-slate-500 text-xs">
+                      <div className="text-center py-4 text-[#78716c] text-xs">
                         Activity logs will populate automatically as actions are taken.
                       </div>
                     )}
@@ -843,14 +843,14 @@ export default function OutreachCRM() {
 
       {/* Notes Modal */}
       {notesModalLead && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#090d16]/80 backdrop-blur-sm p-4">
-          <div className="max-w-lg w-full rounded-xl border border-slate-800 bg-[#0f172a] p-6 space-y-4 shadow-2xl">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0a0d10]/80 backdrop-blur-sm p-4">
+          <div className="max-w-lg w-full rounded-xl border border-[#262b32] bg-[#111827] p-6 space-y-4 shadow-2xl">
+            <div className="flex items-center justify-between border-b border-[#262b32] pb-3">
               <div>
-                <h3 className="font-bold text-white text-sm">{notesModalLead.company_name}</h3>
-                <p className="text-xs font-mono text-slate-400">Call Logs &amp; Discussion Record</p>
+                <h3 className="font-bold text-[#f4f2ef] text-sm">{notesModalLead.company_name}</h3>
+                <p className="text-xs font-mono text-[#78716c]">Call Logs &amp; Discussion Record</p>
               </div>
-              <button onClick={() => setNotesModalLead(null)} className="text-slate-400 hover:text-white font-mono text-xs">
+              <button onClick={() => setNotesModalLead(null)} className="text-[#78716c] hover:text-[#f4f2ef] font-mono text-xs">
                 Close
               </button>
             </div>
@@ -860,13 +860,13 @@ export default function OutreachCRM() {
               onChange={e => setNotesText(e.target.value)}
               placeholder="Record discussion details, follow-up timeline, or specific requirements..."
               rows={5}
-              className="w-full rounded-lg border border-slate-800 bg-[#090d16] p-3 text-xs text-white placeholder-slate-500 outline-none focus:border-slate-600 font-mono"
+              className="w-full rounded-lg border border-[#262b32] bg-[#0a0d10] p-3 text-xs text-[#f4f2ef] placeholder-[#78716c] outline-none focus:border-[#3b424e] font-mono"
             />
 
             <div className="flex items-center justify-end gap-2">
               <button
                 onClick={() => setNotesModalLead(null)}
-                className="px-3 py-1.5 rounded text-xs font-mono text-slate-400 hover:text-white"
+                className="px-3 py-1.5 rounded text-xs font-mono text-[#78716c] hover:text-[#f4f2ef]"
               >
                 Cancel
               </button>
@@ -876,7 +876,7 @@ export default function OutreachCRM() {
                   setNotesModalLead(null);
                   showToast('Note saved to database');
                 }}
-                className="px-3.5 py-1.5 rounded bg-emerald-600 hover:bg-emerald-500 text-xs font-medium text-white shadow font-mono"
+                className="px-3.5 py-1.5 rounded bg-[#065f46] hover:bg-[#047857] text-xs font-medium text-white shadow font-mono"
               >
                 Save Record
               </button>
@@ -887,94 +887,94 @@ export default function OutreachCRM() {
 
       {/* Slide-Over Objection & Scripts Drawer */}
       {drawerOpen && (
-        <div className="fixed inset-y-0 right-0 z-50 w-full sm:w-[480px] bg-[#0f172a] border-l border-slate-800 shadow-2xl p-6 flex flex-col custom-scrollbar overflow-y-auto space-y-6">
-          <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+        <div className="fixed inset-y-0 right-0 z-50 w-full sm:w-[480px] bg-[#111827] border-l border-[#262b32] shadow-2xl p-6 flex flex-col custom-scrollbar overflow-y-auto space-y-6">
+          <div className="flex items-center justify-between border-b border-[#262b32] pb-4">
             <div className="space-y-0.5">
-              <h3 className="text-sm font-bold text-white">Outreach &amp; Objection Cheatsheet</h3>
-              <p className="text-[11px] font-mono text-slate-400">Standard Conversion Desk Responses</p>
+              <h3 className="text-sm font-bold text-[#f4f2ef]">Outreach &amp; Objection Cheatsheet</h3>
+              <p className="text-[11px] font-mono text-[#78716c]">Standard Conversion Desk Responses</p>
             </div>
-            <button onClick={() => setDrawerOpen(false)} className="text-slate-400 hover:text-white text-xs font-mono">
+            <button onClick={() => setDrawerOpen(false)} className="text-[#78716c] hover:text-[#f4f2ef] text-xs font-mono">
               Close
             </button>
           </div>
 
           <div className="space-y-4 text-xs">
             {/* Follow-Up 1 */}
-            <div className="rounded-lg border border-slate-800 bg-[#090d16] p-4 space-y-2">
+            <div className="rounded-lg border border-[#262b32] bg-[#0a0d10] p-4 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="font-mono font-bold text-slate-300">Follow-Up 1 (Day 2 Bump)</span>
+                <span className="font-mono font-bold text-[#f4f2ef]">Follow-Up 1 (Day 2 Bump)</span>
                 <button
                   onClick={() => copyToClipboard('Hey [Name] — floating this back to the top. Just wanted to see if your team has a system in place to instantly convert after-hours ad traffic before they click onto another contractor\'s ad?')}
-                  className="bg-slate-800 hover:bg-slate-700 text-slate-300 px-2 py-1 rounded text-[10px] font-mono"
+                  className="bg-[#161b22] hover:bg-[#262b32] text-[#f4f2ef] px-2 py-1 rounded text-[10px] font-mono border border-[#262b32]"
                 >
                   Copy
                 </button>
               </div>
-              <p className="text-slate-400 leading-relaxed">
+              <p className="text-[#a8a29e] leading-relaxed">
                 Hey [Name] — floating this back to the top. Just wanted to see if your team has a system in place to instantly convert after-hours ad traffic before they click onto another contractor's ad?
               </p>
             </div>
 
             {/* Follow-Up 2 */}
-            <div className="rounded-lg border border-slate-800 bg-[#090d16] p-4 space-y-2">
+            <div className="rounded-lg border border-[#262b32] bg-[#0a0d10] p-4 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="font-mono font-bold text-slate-300">Follow-Up 2 (Day 4 Value)</span>
+                <span className="font-mono font-bold text-[#f4f2ef]">Follow-Up 2 (Day 4 Value)</span>
                 <button
                   onClick={() => copyToClipboard('Hey [Name] — quick question: does your team currently track which specific Meta ad campaigns are driving high-ticket insurance water/mold jobs vs lost clicks? Happy to send a 45-sec Loom showing how our Conversion Desk tracks this live.')}
-                  className="bg-slate-800 hover:bg-slate-700 text-slate-300 px-2 py-1 rounded text-[10px] font-mono"
+                  className="bg-[#161b22] hover:bg-[#262b32] text-[#f4f2ef] px-2 py-1 rounded text-[10px] font-mono border border-[#262b32]"
                 >
                   Copy
                 </button>
               </div>
-              <p className="text-slate-400 leading-relaxed">
+              <p className="text-[#a8a29e] leading-relaxed">
                 Hey [Name] — quick question: does your team currently track which specific Meta ad campaigns are driving high-ticket insurance water/mold jobs vs lost clicks? Happy to send a 45-sec Loom showing how our Conversion Desk tracks this live.
               </p>
             </div>
 
             {/* Objection 1 */}
-            <div className="rounded-lg border border-slate-800 bg-[#090d16] p-4 space-y-2">
+            <div className="rounded-lg border border-[#262b32] bg-[#0a0d10] p-4 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="font-mono font-bold text-slate-300">"We have an answering service"</span>
+                <span className="font-mono font-bold text-[#f4f2ef]">"We have an answering service"</span>
                 <button
                   onClick={() => copyToClipboard('Totally get that. Most answering services just take a message and relay it 15 mins later. Our Conversion Desk qualifies insurance carriers in under 30 seconds and books the inspection straight to your calendar while the property owner is on the line. Worth a 1-min look?')}
-                  className="bg-slate-800 hover:bg-slate-700 text-slate-300 px-2 py-1 rounded text-[10px] font-mono"
+                  className="bg-[#161b22] hover:bg-[#262b32] text-[#f4f2ef] px-2 py-1 rounded text-[10px] font-mono border border-[#262b32]"
                 >
                   Copy
                 </button>
               </div>
-              <p className="text-slate-400 leading-relaxed">
+              <p className="text-[#a8a29e] leading-relaxed">
                 Totally get that. Most answering services just take a message and relay it 15 mins later. Our Conversion Desk qualifies insurance carriers in under 30 seconds and books the inspection straight to your calendar while the property owner is on the line. Worth a 1-min look?
               </p>
             </div>
 
             {/* Objection 2 */}
-            <div className="rounded-lg border border-slate-800 bg-[#090d16] p-4 space-y-2">
+            <div className="rounded-lg border border-[#262b32] bg-[#0a0d10] p-4 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="font-mono font-bold text-slate-300">"We already have a marketing agency"</span>
+                <span className="font-mono font-bold text-[#f4f2ef]">"We already have a marketing agency"</span>
                 <button
                   onClick={() => copyToClipboard('That’s actually awesome! We don\'t replace your agency — we plug directly into their ads with instant call & chat response and ad-level attribution so you can both see the exact ROAS on every dollar spent.')}
-                  className="bg-slate-800 hover:bg-slate-700 text-slate-300 px-2 py-1 rounded text-[10px] font-mono"
+                  className="bg-[#161b22] hover:bg-[#262b32] text-[#f4f2ef] px-2 py-1 rounded text-[10px] font-mono border border-[#262b32]"
                 >
                   Copy
                 </button>
               </div>
-              <p className="text-slate-400 leading-relaxed">
+              <p className="text-[#a8a29e] leading-relaxed">
                 That’s actually awesome! We don't replace your agency — we plug directly into their ads with instant call &amp; chat response and ad-level attribution so you can both see the exact ROAS on every dollar spent.
               </p>
             </div>
 
             {/* Objection 3 */}
-            <div className="rounded-lg border border-slate-800 bg-[#090d16] p-4 space-y-2">
+            <div className="rounded-lg border border-[#262b32] bg-[#0a0d10] p-4 space-y-2">
               <div className="flex items-center justify-between">
-                <span className="font-mono font-bold text-slate-300">"How much does it cost?"</span>
+                <span className="font-mono font-bold text-[#f4f2ef]">"How much does it cost?"</span>
                 <button
                   onClick={() => copyToClipboard('We offer a straightforward pilot trial with zero long-term contracts. If it doesn\'t lock in emergency dispatches for your team, you don\'t pay. Open to a 2-min interactive walkthrough to see if it fits?')}
-                  className="bg-slate-800 hover:bg-slate-700 text-slate-300 px-2 py-1 rounded text-[10px] font-mono"
+                  className="bg-[#161b22] hover:bg-[#262b32] text-[#f4f2ef] px-2 py-1 rounded text-[10px] font-mono border border-[#262b32]"
                 >
                   Copy
                 </button>
               </div>
-              <p className="text-slate-400 leading-relaxed">
+              <p className="text-[#a8a29e] leading-relaxed">
                 We offer a straightforward pilot trial with zero long-term contracts. If it doesn't lock in emergency dispatches for your team, you don't pay. Open to a 2-min interactive walkthrough to see if it fits?
               </p>
             </div>
@@ -984,8 +984,8 @@ export default function OutreachCRM() {
 
       {/* Toast Notification */}
       {toastMsg && (
-        <div className="fixed bottom-6 right-6 z-50 bg-slate-800 border border-slate-700 text-white font-mono text-xs px-4 py-2 rounded shadow-xl flex items-center gap-2">
-          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+        <div className="fixed bottom-6 right-6 z-50 bg-[#161b22] border border-[#3b424e] text-[#f4f2ef] font-mono text-xs px-4 py-2 rounded shadow-xl flex items-center gap-2">
+          <span className="h-1.5 w-1.5 rounded-full bg-[#34d399]"></span>
           <span>{toastMsg}</span>
         </div>
       )}
