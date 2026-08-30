@@ -28,6 +28,49 @@ interface ContractorLead {
   last_contacted_at: string | null;
 }
 
+interface WeeklyReportData {
+  pipeline: {
+    total_leads: number;
+    to_contact: number;
+    dm_sent: number;
+    replied: number;
+    follow_up: number;
+    booked: number;
+    not_interested: number;
+  };
+  weekly: {
+    dms_sent_week: number;
+    replies_week: number;
+    booked_week: number;
+    notes_week: number;
+  };
+  reps: Array<{
+    rep: string;
+    total_assigned: number;
+    dms_sent: number;
+    replied: number;
+    follow_up: number;
+    booked: number;
+  }>;
+  daily: Array<{
+    day_label: string;
+    date_val: string;
+    dms_sent: number;
+    replied: number;
+    booked: number;
+  }>;
+  recent: Array<{
+    id: number;
+    lead_id: string;
+    company_name: string;
+    action_type: string;
+    from_value: string;
+    to_value: string;
+    rep_name: string;
+    created_at: string;
+  }>;
+}
+
 export default function OutreachCRM() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [pinInput, setPinInput] = useState('');
@@ -39,6 +82,9 @@ export default function OutreachCRM() {
   const [nicheFilter, setNicheFilter] = useState('all');
   const [dailyTarget, setDailyTarget] = useState(30);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [reportModalOpen, setReportModalOpen] = useState(false);
+  const [weeklyReport, setWeeklyReport] = useState<WeeklyReportData | null>(null);
+  const [reportLoading, setReportLoading] = useState(false);
   const [notesModalLead, setNotesModalLead] = useState<ContractorLead | null>(null);
   const [notesText, setNotesText] = useState('');
   const [toastMsg, setToastMsg] = useState('');
@@ -89,6 +135,21 @@ export default function OutreachCRM() {
       console.error('Failed to load leads:', err);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const fetchWeeklyReport = async () => {
+    setReportLoading(true);
+    try {
+      const res = await fetch('/api/reports/weekly');
+      const data = await res.json();
+      if (data.success) {
+        setWeeklyReport(data.data);
+      }
+    } catch (err) {
+      console.error('Failed to load weekly report:', err);
+    } finally {
+      setReportLoading(false);
     }
   };
 
@@ -205,6 +266,39 @@ export default function OutreachCRM() {
     link.click();
   };
 
+  const exportWeeklyCsv = () => {
+    if (!weeklyReport) return;
+    const rows = [
+      ["--- WEEKLY OUTREACH PERFORMANCE REPORT ---"],
+      ["Report Generated", new Date().toLocaleString()],
+      ["DMs Sent (Last 7 Days)", weeklyReport.weekly.dms_sent_week || 0],
+      ["Conversations Started", weeklyReport.weekly.replies_week || 0],
+      ["Demos Booked", weeklyReport.weekly.booked_week || 0],
+      ["Notes Added", weeklyReport.weekly.notes_week || 0],
+      [""],
+      ["--- REP BREAKDOWN ---"],
+      ["Rep Name", "Total Assigned", "DMs Sent", "In Convo", "Follow-up", "Booked"]
+    ];
+
+    weeklyReport.reps.forEach(r => {
+      rows.push([
+        r.rep === 'partner_a' ? 'Rep 1 (You)' : r.rep === 'partner_b' ? 'Rep 2 (Partner)' : 'Unassigned',
+        r.total_assigned,
+        r.dms_sent,
+        r.replied,
+        r.follow_up,
+        r.booked
+      ]);
+    });
+
+    const csvContent = "\uFEFF" + rows.map(r => r.map(v => '"' + String(v).replace(/"/g, '""') + '"').join(',')).join('\n');
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = `alizane_weekly_report_${new Date().toISOString().split('T')[0]}.csv`;
+    link.click();
+  };
+
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-slate-950 p-6">
@@ -262,6 +356,15 @@ export default function OutreachCRM() {
           </div>
 
           <div className="flex flex-wrap items-center gap-3 font-mono text-xs">
+            <button
+              onClick={() => {
+                fetchWeeklyReport();
+                setReportModalOpen(true);
+              }}
+              className="inline-flex items-center gap-2 rounded-xl border border-cyan-500/40 bg-cyan-950/80 hover:bg-cyan-900 px-4 py-2.5 font-bold text-cyan-300 transition-all shadow-lg hover:shadow-cyan-500/10"
+            >
+              <span>📊 Weekly Report &amp; Logs</span>
+            </button>
             <button
               onClick={() => setDrawerOpen(true)}
               className="inline-flex items-center gap-2 rounded-xl border border-purple-500/40 bg-purple-950/70 hover:bg-purple-900 px-4 py-2.5 font-bold text-purple-300 transition-all shadow-lg hover:shadow-purple-500/10"
@@ -616,6 +719,148 @@ export default function OutreachCRM() {
           </div>
         </div>
       </div>
+
+      {/* Weekly Performance Report & Team Logs Modal */}
+      {reportModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/85 backdrop-blur-md p-4 overflow-y-auto">
+          <div className="max-w-4xl w-full rounded-2xl border border-slate-800 bg-slate-900 p-6 sm:p-8 space-y-6 shadow-2xl my-8">
+            <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">📊</span>
+                <div>
+                  <h3 className="font-extrabold text-white text-lg sm:text-xl">Weekly Outreach Performance &amp; Team Logs</h3>
+                  <p className="text-xs font-mono text-slate-400">Live Team Analytics, Rep Breakdown &amp; Audit Trail</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={exportWeeklyCsv}
+                  className="bg-emerald-600 hover:bg-emerald-500 text-white font-mono text-xs font-bold px-3 py-1.5 rounded-lg shadow transition-all"
+                >
+                  📥 Export Report CSV
+                </button>
+                <button onClick={() => setReportModalOpen(false)} className="text-slate-400 hover:text-white font-mono text-lg px-2">
+                  ✕
+                </button>
+              </div>
+            </div>
+
+            {reportLoading || !weeklyReport ? (
+              <div className="py-12 text-center text-slate-400 font-mono">
+                <div className="inline-flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-cyan-400 animate-ping"></span>
+                  <span>Generating weekly report from Neon Postgres...</span>
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-6">
+                
+                {/* 4 Top KPI Cards */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono">
+                  <div className="rounded-xl border border-cyan-500/30 bg-cyan-950/40 p-4">
+                    <div className="text-[11px] text-cyan-400 font-bold">DMs Sent (7 Days)</div>
+                    <div className="text-2xl font-black text-white mt-1">{weeklyReport.weekly.dms_sent_week || 0}</div>
+                  </div>
+                  <div className="rounded-xl border border-emerald-500/30 bg-emerald-950/40 p-4">
+                    <div className="text-[11px] text-emerald-400 font-bold">Conversations Started</div>
+                    <div className="text-2xl font-black text-white mt-1">{weeklyReport.weekly.replies_week || 0}</div>
+                  </div>
+                  <div className="rounded-xl border border-purple-500/30 bg-purple-950/40 p-4">
+                    <div className="text-[11px] text-purple-400 font-bold">Demos Booked 🎯</div>
+                    <div className="text-2xl font-black text-white mt-1">{weeklyReport.weekly.booked_week || 0}</div>
+                  </div>
+                  <div className="rounded-xl border border-amber-500/30 bg-amber-950/40 p-4">
+                    <div className="text-[11px] text-amber-400 font-bold">Call/Chat Notes</div>
+                    <div className="text-2xl font-black text-white mt-1">{weeklyReport.weekly.notes_week || 0}</div>
+                  </div>
+                </div>
+
+                {/* Rep Leaderboard Breakdown */}
+                <div className="space-y-3">
+                  <h4 className="font-bold text-white text-sm font-mono flex items-center gap-2">
+                    <span>👥</span>
+                    <span>Rep Leaderboard &amp; Workload Distribution</span>
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-xs">
+                    {weeklyReport.reps.map(r => {
+                      const repLabel = r.rep === 'partner_a' ? '👤 Rep 1 (You)' : r.rep === 'partner_b' ? '👤 Rep 2 (Partner)' : '📁 Unassigned';
+                      const repBorder = r.rep === 'partner_a' ? 'border-pink-500/40 bg-pink-950/20' : r.rep === 'partner_b' ? 'border-blue-500/40 bg-blue-950/20' : 'border-slate-800 bg-slate-950';
+
+                      return (
+                        <div key={r.rep} className={`rounded-xl border p-4 space-y-3 ${repBorder}`}>
+                          <div className="flex items-center justify-between font-bold text-white text-sm">
+                            <span>{repLabel}</span>
+                            <span className="text-xs text-slate-400">{r.total_assigned} Assigned Leads</span>
+                          </div>
+                          <div className="grid grid-cols-4 gap-2 text-center text-[11px]">
+                            <div className="bg-slate-900/90 rounded p-2 border border-slate-800">
+                              <div className="text-slate-400 text-[10px]">DMs Sent</div>
+                              <div className="font-bold text-cyan-300 text-sm mt-0.5">{r.dms_sent}</div>
+                            </div>
+                            <div className="bg-slate-900/90 rounded p-2 border border-slate-800">
+                              <div className="text-slate-400 text-[10px]">In Convo</div>
+                              <div className="font-bold text-emerald-300 text-sm mt-0.5">{r.replied}</div>
+                            </div>
+                            <div className="bg-slate-900/90 rounded p-2 border border-slate-800">
+                              <div className="text-slate-400 text-[10px]">Follow-Up</div>
+                              <div className="font-bold text-amber-300 text-sm mt-0.5">{r.follow_up}</div>
+                            </div>
+                            <div className="bg-slate-900/90 rounded p-2 border border-slate-800">
+                              <div className="text-slate-400 text-[10px]">Booked 🎯</div>
+                              <div className="font-bold text-purple-300 text-sm mt-0.5">{r.booked}</div>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Live Activity Trail Feed */}
+                <div className="space-y-3">
+                  <h4 className="font-bold text-white text-sm font-mono flex items-center gap-2">
+                    <span>📜</span>
+                    <span>Recent Team Activity Log (Live Audit Trail)</span>
+                  </h4>
+                  <div className="rounded-xl border border-slate-800 bg-slate-950 p-3 max-h-60 overflow-y-auto custom-scrollbar space-y-2 font-mono text-[11px]">
+                    {weeklyReport.recent && weeklyReport.recent.length > 0 ? (
+                      weeklyReport.recent.map(act => {
+                        const dateStr = new Date(act.created_at).toLocaleString([], { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+                        const repBadge = act.rep_name === 'partner_a' ? 'Rep 1' : act.rep_name === 'partner_b' ? 'Rep 2' : 'Team';
+
+                        let actionDesc = '';
+                        if (act.action_type === 'status_change') {
+                          actionDesc = `changed status to ${act.to_value.toUpperCase()}`;
+                        } else if (act.action_type === 'note_added') {
+                          actionDesc = `added note: "${act.to_value}"`;
+                        } else if (act.action_type === 'rep_assigned') {
+                          actionDesc = `assigned to ${act.to_value}`;
+                        }
+
+                        return (
+                          <div key={act.id} className="flex items-center justify-between border-b border-slate-800/60 pb-1.5 last:border-0">
+                            <div className="flex items-center gap-2">
+                              <span className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 text-[10px] font-bold border border-slate-700">{repBadge}</span>
+                              <span className="font-bold text-white">{act.company_name}</span>
+                              <span className="text-slate-400">{actionDesc}</span>
+                            </div>
+                            <span className="text-slate-500 text-[10px] whitespace-nowrap">{dateStr}</span>
+                          </div>
+                        );
+                      })
+                    ) : (
+                      <div className="text-center py-6 text-slate-500">
+                        No outreach actions logged yet. As you mark leads as DM Sent or add notes, they will appear here live!
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Notes Modal */}
       {notesModalLead && (
