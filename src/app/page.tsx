@@ -166,7 +166,11 @@ export default function OutreachCRM() {
   };
 
   const updateLead = async (id: string, updates: Partial<ContractorLead>) => {
-    setLeads(prev => prev.map(l => l.id === id ? { ...l, ...updates } : l));
+    const fullUpdates = { ...updates };
+    if (updates.status === 'dm_sent') {
+      fullUpdates.last_contacted_at = new Date().toISOString();
+    }
+    setLeads(prev => prev.map(l => l.id === id ? { ...l, ...fullUpdates } : l));
 
     try {
       const res = await fetch(`/api/leads/${id}`, {
@@ -201,11 +205,13 @@ export default function OutreachCRM() {
     const todayStr = new Date().toISOString().split('T')[0];
 
     leads.forEach(l => {
-      if (l.status === 'to_contact') s.to_contact++;
-      if (l.status === 'dm_sent') s.dm_sent++;
-      if (l.status === 'replied') s.replied++;
-      if (l.status === 'follow_up') s.follow_up++;
-      if (l.status === 'booked') s.booked++;
+      const st = l.status || 'to_contact';
+      if (st === 'to_contact') s.to_contact++;
+      else if (st === 'dm_sent') s.dm_sent++;
+      else if (st === 'replied') s.replied++;
+      else if (st === 'follow_up') s.follow_up++;
+      else if (st === 'booked') s.booked++;
+      
       if (l.last_contacted_at && l.last_contacted_at.startsWith(todayStr)) {
         s.sent_today++;
       }
@@ -579,12 +585,12 @@ export default function OutreachCRM() {
                             onChange={e => updateLead(lead.id, { status: e.target.value })}
                             className={`text-xs font-mono font-medium rounded-md px-2.5 py-1 border outline-none cursor-pointer ${statusSelectClass}`}
                           >
-                            <option value="to_contact">To Contact</option>
-                            <option value="dm_sent">Outbound Sent</option>
-                            <option value="replied">In Discussion</option>
-                            <option value="follow_up">Follow-Up</option>
-                            <option value="booked">Demo Booked</option>
-                            <option value="not_interested">Passed</option>
+                            <option value="to_contact" className="bg-[#111827] text-[#f4f2ef]">To Contact</option>
+                            <option value="dm_sent" className="bg-[#111827] text-[#f4f2ef]">Outbound Sent</option>
+                            <option value="replied" className="bg-[#111827] text-[#f4f2ef]">In Discussion</option>
+                            <option value="follow_up" className="bg-[#111827] text-[#f4f2ef]">Follow-Up</option>
+                            <option value="booked" className="bg-[#111827] text-[#f4f2ef]">Demo Booked</option>
+                            <option value="not_interested" className="bg-[#111827] text-[#f4f2ef]">Passed</option>
                           </select>
                         </td>
 
