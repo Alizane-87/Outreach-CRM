@@ -21,6 +21,8 @@ export async function PATCH(
     if (status !== undefined) {
       if (status === 'dm_sent') {
         await sql`UPDATE contractor_leads SET status = ${status}, last_contacted_at = NOW(), updated_at = NOW() WHERE id = ${id}`;
+      } else if (status === 'to_contact') {
+        await sql`UPDATE contractor_leads SET status = ${status}, last_contacted_at = NULL, updated_at = NOW() WHERE id = ${id}`;
       } else {
         await sql`UPDATE contractor_leads SET status = ${status}, updated_at = NOW() WHERE id = ${id}`;
       }

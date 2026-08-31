@@ -169,6 +169,8 @@ export default function OutreachCRM() {
     const fullUpdates = { ...updates };
     if (updates.status === 'dm_sent') {
       fullUpdates.last_contacted_at = new Date().toISOString();
+    } else if (updates.status === 'to_contact') {
+      fullUpdates.last_contacted_at = null;
     }
     setLeads(prev => prev.map(l => l.id === id ? { ...l, ...fullUpdates } : l));
 
@@ -212,7 +214,7 @@ export default function OutreachCRM() {
       else if (st === 'follow_up') s.follow_up++;
       else if (st === 'booked') s.booked++;
 
-      if (l.last_contacted_at && l.last_contacted_at.startsWith(todayStr)) {
+      if (st !== 'to_contact' && l.last_contacted_at && l.last_contacted_at.startsWith(todayStr)) {
         s.sent_today++;
       }
     });
