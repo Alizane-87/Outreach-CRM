@@ -288,7 +288,7 @@ export default function OutreachCRM() {
 
     weeklyReport.reps.forEach(r => {
       rows.push([
-        r.rep === 'partner_a' ? 'Rep 1 (You)' : r.rep === 'partner_b' ? 'Rep 2 (Partner)' : 'Unassigned',
+        r.rep === 'mahadi' || r.rep === 'partner_a' ? 'Mahadi' : r.rep === 'shivangi' || r.rep === 'partner_b' ? 'Shivangi' : 'Unassigned',
         r.total_assigned,
         r.dms_sent,
         r.replied,
@@ -521,8 +521,8 @@ export default function OutreachCRM() {
             className="bg-white border border-[#E7E5E4] rounded-lg px-3.5 py-2.5 text-xs text-[#111827] outline-none font-mono shadow-sm"
           >
             <option value="all">All Team Reps</option>
-            <option value="partner_a">Rep 1 (You)</option>
-            <option value="partner_b">Rep 2 (Partner)</option>
+            <option value="mahadi">Mahadi</option>
+            <option value="shivangi">Shivangi</option>
             <option value="unassigned">Unassigned</option>
           </select>
 
@@ -603,8 +603,8 @@ export default function OutreachCRM() {
                             className="text-[11px] font-mono rounded bg-[#F5F5F4] border border-[#E7E5E4] px-2 py-1 text-[#111827] outline-none"
                           >
                             <option value="unassigned">— None —</option>
-                            <option value="partner_a">Rep 1 (You)</option>
-                            <option value="partner_b">Rep 2 (Partner)</option>
+                            <option value="mahadi">Mahadi</option>
+                            <option value="shivangi">Shivangi</option>
                           </select>
                         </td>
 
@@ -772,7 +772,7 @@ export default function OutreachCRM() {
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-xs">
                     {weeklyReport.reps.map(r => {
-                      const repLabel = r.rep === 'partner_a' ? 'Rep 1 (You)' : r.rep === 'partner_b' ? 'Rep 2 (Partner)' : 'Unassigned';
+                      const repLabel = r.rep === 'mahadi' || r.rep === 'partner_a' ? 'Mahadi' : r.rep === 'shivangi' || r.rep === 'partner_b' ? 'Shivangi' : 'Unassigned';
 
                       return (
                         <div key={r.rep} className="rounded-lg border border-[#E7E5E4] bg-[#F5F5F4] p-3.5 space-y-2.5">
@@ -813,7 +813,7 @@ export default function OutreachCRM() {
                     {weeklyReport.recent && weeklyReport.recent.length > 0 ? (
                       weeklyReport.recent.map(act => {
                         const dateStr = new Date(act.created_at).toLocaleString([], { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
-                        const repBadge = act.rep_name === 'partner_a' ? 'Rep 1' : act.rep_name === 'partner_b' ? 'Rep 2' : 'System';
+                        const repBadge = act.rep_name === 'mahadi' || act.rep_name === 'partner_a' ? 'Mahadi' : act.rep_name === 'shivangi' || act.rep_name === 'partner_b' ? 'Shivangi' : 'System';
 
                         let actionDesc = '';
                         if (act.action_type === 'status_change') {
