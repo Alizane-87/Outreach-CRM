@@ -978,14 +978,14 @@ export default function OutreachCRM() {
               <div className="flex items-center justify-between">
                 <span className="font-bold text-xs text-[#111827]">"So it's a chatbot."</span>
                 <button
-                  onClick={() => copyToClipboard("Three things, and the conversation's only one of them. Second: the calls your crew misses stop going to voicemail. It still rings your line first, same as today, and only if nobody gets to it do we pick it up, get the address and what happened, and send it straight to you. Third — and this is the one people miss — every lead comes back with the exact ad that produced it attached, and that feeds into your Google Ads account so your campaigns keep learning. A chatbot's a box on a website. It has no idea what you paid for that visitor, and no way to tell Google any of it worked.\n\nIf a box on a website is genuinely all you want, go get one for $19 — really, do that. This is for someone spending real money on clicks.")}
+                  onClick={() => copyToClipboard("Three things, and the conversation's only one of them. Second: the calls your crew misses stop going to voicemail. It still rings your line first, same as today, and only if nobody gets to it do we pick it up, get the address and what happened, and send it straight to you. Third — and this is the one people miss — every lead comes back with the exact ad that produced it attached, and that feeds into your Google Ads or Facebook/Meta Ads account so your campaigns keep learning. A chatbot's a box on a website. It has no idea what you paid for that visitor, and no way to tell Google or Meta any of it worked.\n\nIf a box on a website is genuinely all you want, go get one for $19 — really, do that. This is for someone spending real money on clicks.")}
                   className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
                 >
                   Copy
                 </button>
               </div>
               <p className="text-xs text-[#57534E] leading-relaxed">
-                Three things, and the conversation's only one of them. Second: the calls your crew misses stop going to voicemail. It still rings your line first, same as today, and only if nobody gets to it do we pick it up, get the address and what happened, and send it straight to you. Third — and this is the one people miss — every lead comes back with the exact ad that produced it attached, and that feeds into your Google Ads account so your campaigns keep learning. A chatbot's a box on a website. It has no idea what you paid for that visitor, and no way to tell Google any of it worked.
+                Three things, and the conversation's only one of them. Second: the calls your crew misses stop going to voicemail. It still rings your line first, same as today, and only if nobody gets to it do we pick it up, get the address and what happened, and send it straight to you. Third — and this is the one people miss — every lead comes back with the exact ad that produced it attached, and that feeds into your Google Ads or Facebook/Meta Ads account so your campaigns keep learning. A chatbot's a box on a website. It has no idea what you paid for that visitor, and no way to tell Google or Meta any of it worked.
               </p>
               <p className="text-[11px] text-[#78716C] italic">
                 If a box on a website is genuinely all you want, go get one for $19 — really, do that. This is for someone spending real money on clicks.
@@ -1205,14 +1205,14 @@ export default function OutreachCRM() {
               <div className="flex items-center justify-between">
                 <span className="font-bold text-xs text-[#111827]">"Will my conversions still show up in Google Ads?"</span>
                 <button
-                  onClick={() => copyToClipboard("Yes — that's the whole point of holding onto the click ID. Every captured lead gets sent back into your Google Ads account as a conversion, so your bidding keeps learning from real results. Skip that step and your campaigns don't just stall. They get worse over time.")}
+                  onClick={() => copyToClipboard("Yes — that's the whole point of holding onto the click ID. Every captured lead gets sent back into your Google Ads or Meta Ads account as a conversion, so your bidding keeps learning from real results. Skip that step and your campaigns don't just stall. They get worse over time.")}
                   className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
                 >
                   Copy
                 </button>
               </div>
               <p className="text-xs text-[#57534E] leading-relaxed">
-                Yes — that's the whole point of holding onto the click ID. Every captured lead gets sent back into your Google Ads account as a conversion, so your bidding keeps learning from real results. Skip that step and your campaigns don't just stall. They get worse over time.
+                Yes — that's the whole point of holding onto the click ID. Every captured lead gets sent back into your Google Ads or Meta Ads account as a conversion, so your bidding keeps learning from real results. Skip that step and your campaigns don't just stall. They get worse over time.
               </p>
               <p className="text-[11px] text-[#78716C]">
                 <em>Technical reference (if agency asks):</em> GCLID captured on landing & stored with lead, conversion events on page for chat/call taps, Google call reporting, returned via Google Data Manager.
@@ -1224,14 +1224,14 @@ export default function OutreachCRM() {
               <div className="flex items-center justify-between">
                 <span className="font-bold text-xs text-[#111827]">"Can you tell me which leads actually became jobs?"</span>
                 <button
-                  onClick={() => copyToClipboard("Only if you tell us. We capture the lead and the click that brought it in — whether it turned into a signed job lives on your end. But if you're willing to mark off which ones closed, that flows back to Google as a stronger signal, and your ad spend gets sharper because of it.")}
+                  onClick={() => copyToClipboard("Only if you tell us. We capture the lead and the click that brought it in — whether it turned into a signed job lives on your end. But if you're willing to mark off which ones closed, that flows back to Google / Meta as a stronger signal, and your ad spend gets sharper because of it.")}
                   className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
                 >
                   Copy
                 </button>
               </div>
               <p className="text-xs text-[#57534E] leading-relaxed">
-                Only if you tell us. We capture the lead and the click that brought it in — whether it turned into a signed job lives on your end. But if you're willing to mark off which ones closed, that flows back to Google as a stronger signal, and your ad spend gets sharper because of it.
+                Only if you tell us. We capture the lead and the click that brought it in — whether it turned into a signed job lives on your end. But if you're willing to mark off which ones closed, that flows back to Google / Meta as a stronger signal, and your ad spend gets sharper because of it.
               </p>
             </div>
 

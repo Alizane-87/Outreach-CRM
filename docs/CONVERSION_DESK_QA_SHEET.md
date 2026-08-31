@@ -38,7 +38,7 @@ One page, built for a phone, that your ads point to instead of your homepage. Ri
 No — your website stays exactly as it is. This is a separate page that only your paid traffic ever sees. Nothing about what you've already got gets touched.
 
 **"So it's a chatbot."**
-Three things, and the conversation's only one of them. Second: the calls your crew misses stop going to voicemail. It still rings your line first, same as today, and only if nobody gets to it do we pick it up, get the address and what happened, and send it straight to you. Third — and this is the one people miss — every lead comes back with the exact ad that produced it attached, and that feeds into your Google Ads account so your campaigns keep learning. A chatbot's a box on a website. It has no idea what you paid for that visitor, and no way to tell Google any of it worked.
+Three things, and the conversation's only one of them. Second: the calls your crew misses stop going to voicemail. It still rings your line first, same as today, and only if nobody gets to it do we pick it up, get the address and what happened, and send it straight to you. Third — and this is the one people miss — every lead comes back with the exact ad that produced it attached, and that feeds into your Google Ads or Facebook/Meta Ads account so your campaigns keep learning. A chatbot's a box on a website. It has no idea what you paid for that visitor, and no way to tell Google or Meta any of it worked.
 
 If a box on a website is genuinely all you want, go get one for $19 — really, do that. This is for someone spending real money on clicks.
 
@@ -88,12 +88,12 @@ The most important question on this page — and the one their agency's going to
 Every lead comes back attached to the click that produced it. The moment someone taps your ad, Google stamps that click with an ID — we hold onto it and store it right alongside the lead. So what lands in your inbox isn't just a name and a number. It's a name, a number, and the exact ad and keyword that brought them to you.
 
 **"Will my conversions still show up in Google Ads?"**
-Yes — that's the whole point of holding onto the click ID. Every captured lead gets sent back into your Google Ads account as a conversion, so your bidding keeps learning from real results. Skip that step and your campaigns don't just stall. They get worse over time.
+Yes — that's the whole point of holding onto the click ID. Every captured lead gets sent back into your Google Ads or Meta Ads account as a conversion, so your bidding keeps learning from real results. Skip that step and your campaigns don't just stall. They get worse over time.
 
 *Don't get into the plumbing on a sales call.* If they push for detail, or their agency asks, the substance is: GCLID captured on landing and stored with the lead, conversion events on the page for chat capture and call taps, Google's call reporting handling ad-driven calls, results returned via Google's Data Manager.
 
 **"Can you tell me which leads actually became jobs?"**
-Only if you tell us. We capture the lead and the click that brought it in — whether it turned into a signed job lives on your end. But if you're willing to mark off which ones closed, that flows back to Google as a stronger signal, and your ad spend gets sharper because of it. *Frame this as an offer, not a requirement — most won't do it at first, and the ones who do become very hard to churn.*
+Only if you tell us. We capture the lead and the click that brought it in — whether it turned into a signed job lives on your end. But if you're willing to mark off which ones closed, that flows back to Google / Meta as a stronger signal, and your ad spend gets sharper because of it. *Frame this as an offer, not a requirement — most won't do it at first, and the ones who do become very hard to churn.*
 
 **"Does this work with Meta ads too?"**
 Same idea, different plumbing under the hood. *Confirm what's actually live before you promise it* — Meta and Google are two separate setups, and one being ready doesn't mean the other is.
