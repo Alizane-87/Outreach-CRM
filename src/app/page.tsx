@@ -893,100 +893,675 @@ export default function OutreachCRM() {
         </div>
       )}
 
-      {/* Slide-Over Objection & Scripts Drawer */}
+      {/* Comprehensive Conversion Desk Q&A & Playbook Drawer */}
       {drawerOpen && (
-        <div className="fixed inset-y-0 right-0 z-50 w-full sm:w-[480px] bg-white border-l border-[#E7E5E4] shadow-2xl p-6 flex flex-col custom-scrollbar overflow-y-auto space-y-6 text-[#111827]">
-          <div className="flex items-center justify-between border-b border-[#E7E5E4] pb-4">
+        <div className="fixed inset-y-0 right-0 z-50 w-full sm:w-[680px] bg-[#F9F9F7] border-l border-[#E7E5E4] shadow-2xl p-6 flex flex-col custom-scrollbar overflow-y-auto space-y-6 text-[#111827]">
+          {/* Header */}
+          <div className="flex items-center justify-between border-b border-[#E7E5E4] pb-4 sticky top-0 bg-[#F9F9F7] z-10">
             <div className="space-y-0.5">
-              <h3 className="text-sm font-bold text-[#111827]">Outreach &amp; Objection Cheatsheet</h3>
-              <p className="text-[11px] font-mono text-[#57534E]">Standard Conversion Desk Responses</p>
+              <div className="inline-flex items-center gap-1.5 rounded bg-[#ECFDF5] border border-[#A7F3D0] px-2 py-0.5 font-mono text-[10px] text-[#065F46] font-bold">
+                LIVE PLAYBOOK
+              </div>
+              <h3 className="text-base font-bold text-[#111827]">Conversion Desk — Q&amp;A Sheet</h3>
+              <p className="text-[11px] font-mono text-[#57534E]">For live use in DMs and calls with restoration prospects</p>
             </div>
-            <button onClick={() => setDrawerOpen(false)} className="text-[#78716C] hover:text-[#111827] text-xs font-mono">
+            <button
+              onClick={() => setDrawerOpen(false)}
+              className="text-[#78716C] hover:text-[#111827] text-xs font-mono px-2.5 py-1.5 rounded border border-[#E7E5E4] bg-white hover:bg-[#F5F5F4] shadow-sm transition-all"
+            >
               Close
             </button>
           </div>
 
-          <div className="space-y-4 text-xs">
-            {/* Follow-Up 1 */}
-            <div className="rounded-lg border border-[#E7E5E4] bg-[#F5F5F4] p-4 space-y-2">
+          {/* Core Rules Warning Card */}
+          <div className="rounded-xl border border-red-200 bg-red-50/70 p-4 space-y-2.5 text-xs">
+            <div className="font-mono font-bold text-red-800 uppercase tracking-wider text-[11px] flex items-center gap-1.5">
+              <span>Read This First — 3 Rules That Don't Bend</span>
+            </div>
+            <ul className="space-y-2 text-red-950/90 leading-relaxed font-sans text-xs">
+              <li><strong>1. Never invent proof.</strong> We have no case studies, testimonials, or published results. Do not say "we've helped X companies," quote unmeasured results, or name a client. If asked for proof we don't have, answer honestly with the script below.</li>
+              <li><strong>2. Never promise outbound calling.</strong> We do not call people back. Answering inbound calls is legally straightforward; placing automated AI calls to consumers carries massive penalties. If asked: <em>"A person on your team does that — we hand you the lead within seconds so they can."</em></li>
+              <li><strong>3. Only sell to businesses already running ads.</strong> If they aren't spending on paid traffic, the entire pitch is void — there are no clicks to convert, they'll see nothing in month one, and they'll cancel. Politely disqualify.</li>
+            </ul>
+          </div>
+
+          {/* Confirm Before Using Notice */}
+          <div className="rounded-xl border border-amber-200 bg-amber-50/70 p-4 space-y-2 text-xs">
+            <div className="font-mono font-bold text-amber-800 uppercase tracking-wider text-[11px]">
+              Confirm Before Using — Not Yet Locked
+            </div>
+            <p className="text-amber-950/90 leading-relaxed text-xs">
+              Check before quoting: $250 paid pilot credit against build fee, founding-client offer (waived build, $149/mo locked 12 mo, first 5 clients), 30-day money-back guarantee, live phone number availability, and <strong>whether page captures GCLID & fires conversion events yet</strong>. If unconfirmed, don't mention it. Silence is recoverable; a walked-back promise isn't.
+            </p>
+          </div>
+
+          {/* Section: The Product */}
+          <div className="space-y-3">
+            <h4 className="font-mono text-xs font-bold text-[#065F46] uppercase tracking-wider border-b border-[#E7E5E4] pb-1">
+              The Product
+            </h4>
+
+            {/* Q1 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
               <div className="flex items-center justify-between">
-                <span className="font-mono font-bold text-[#111827]">Follow-Up 1 (Day 2 Bump)</span>
+                <span className="font-bold text-xs text-[#111827]">"What is this exactly?"</span>
                 <button
-                  onClick={() => copyToClipboard('Hey [Name] — floating this back to the top. Just wanted to see if your team has a system in place to instantly convert after-hours ad traffic before they click onto another contractor\'s ad?')}
-                  className="bg-white hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4] shadow-sm"
+                  onClick={() => copyToClipboard("One page, built for a phone, that your ads point to instead of your homepage. Right at the top, a button to call. Underneath it, a conversation that's already open — answering questions about your business and getting the caller's name and number before they wander off. There's also a backstop on your phone line: if a call comes in and nobody gets to it, we pick it up instead of voicemail and send you the details. And every lead that comes through, chat or call, comes back tagged with the exact ad and keyword that produced it.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
                 >
                   Copy
                 </button>
               </div>
-              <p className="text-[#57534E] leading-relaxed">
-                Hey [Name] — floating this back to the top. Just wanted to see if your team has a system in place to instantly convert after-hours ad traffic before they click onto another contractor's ad?
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                One page, built for a phone, that your ads point to instead of your homepage. Right at the top, a button to call. Underneath it, a conversation that's already open — answering questions about your business and getting the caller's name and number before they wander off. There's also a backstop on your phone line: if a call comes in and nobody gets to it, we pick it up instead of voicemail and send you the details. And every lead that comes through, chat or call, comes back tagged with the exact ad and keyword that produced it.
               </p>
             </div>
 
-            {/* Follow-Up 2 */}
-            <div className="rounded-lg border border-[#E7E5E4] bg-[#F5F5F4] p-4 space-y-2">
+            {/* Q2 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
               <div className="flex items-center justify-between">
-                <span className="font-mono font-bold text-[#111827]">Follow-Up 2 (Day 4 Value)</span>
+                <span className="font-bold text-xs text-[#111827]">"Is this a website? Do I have to replace mine?"</span>
                 <button
-                  onClick={() => copyToClipboard('Hey [Name] — quick question: does your team currently track which specific Meta ad campaigns are driving high-ticket insurance water/mold jobs vs lost clicks? Happy to send a 45-sec Loom showing how our Conversion Desk tracks this live.')}
-                  className="bg-white hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4] shadow-sm"
+                  onClick={() => copyToClipboard("No — your website stays exactly as it is. This is a separate page that only your paid traffic ever sees. Nothing about what you've already got gets touched.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
                 >
                   Copy
                 </button>
               </div>
-              <p className="text-[#57534E] leading-relaxed">
-                Hey [Name] — quick question: does your team currently track which specific Meta ad campaigns are driving high-ticket insurance water/mold jobs vs lost clicks? Happy to send a 45-sec Loom showing how our Conversion Desk tracks this live.
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                No — your website stays exactly as it is. This is a separate page that only your paid traffic ever sees. Nothing about what you've already got gets touched.
               </p>
             </div>
 
-            {/* Objection 1 */}
-            <div className="rounded-lg border border-[#E7E5E4] bg-[#F5F5F4] p-4 space-y-2">
+            {/* Q3 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
               <div className="flex items-center justify-between">
-                <span className="font-mono font-bold text-[#111827]">"We have an answering service"</span>
+                <span className="font-bold text-xs text-[#111827]">"So it's a chatbot."</span>
                 <button
-                  onClick={() => copyToClipboard('Totally get that. Most answering services just take a message and relay it 15 mins later. Our Conversion Desk qualifies insurance carriers in under 30 seconds and books the inspection straight to your calendar while the property owner is on the line. Worth a 1-min look?')}
-                  className="bg-white hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4] shadow-sm"
+                  onClick={() => copyToClipboard("Three things, and the conversation's only one of them. Second: the calls your crew misses stop going to voicemail. It still rings your line first, same as today, and only if nobody gets to it do we pick it up, get the address and what happened, and send it straight to you. Third — and this is the one people miss — every lead comes back with the exact ad that produced it attached, and that feeds into your Google Ads account so your campaigns keep learning. A chatbot's a box on a website. It has no idea what you paid for that visitor, and no way to tell Google any of it worked.\n\nIf a box on a website is genuinely all you want, go get one for $19 — really, do that. This is for someone spending real money on clicks.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
                 >
                   Copy
                 </button>
               </div>
-              <p className="text-[#57534E] leading-relaxed">
-                Totally get that. Most answering services just take a message and relay it 15 mins later. Our Conversion Desk qualifies insurance carriers in under 30 seconds and books the inspection straight to your calendar while the property owner is on the line. Worth a 1-min look?
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                Three things, and the conversation's only one of them. Second: the calls your crew misses stop going to voicemail. It still rings your line first, same as today, and only if nobody gets to it do we pick it up, get the address and what happened, and send it straight to you. Third — and this is the one people miss — every lead comes back with the exact ad that produced it attached, and that feeds into your Google Ads account so your campaigns keep learning. A chatbot's a box on a website. It has no idea what you paid for that visitor, and no way to tell Google any of it worked.
+              </p>
+              <p className="text-[11px] text-[#78716C] italic">
+                If a box on a website is genuinely all you want, go get one for $19 — really, do that. This is for someone spending real money on clicks.
               </p>
             </div>
 
-            {/* Objection 2 */}
-            <div className="rounded-lg border border-[#E7E5E4] bg-[#F5F5F4] p-4 space-y-2">
+            {/* Q4 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
               <div className="flex items-center justify-between">
-                <span className="font-mono font-bold text-[#111827]">"We already have a marketing agency"</span>
+                <span className="font-bold text-xs text-[#111827]">"Who's answering the phone?"</span>
                 <button
-                  onClick={() => copyToClipboard('That’s actually awesome! We don\'t replace your agency — we plug directly into their ads with instant call & chat response and ad-level attribution so you can both see the exact ROAS on every dollar spent.')}
-                  className="bg-white hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4] shadow-sm"
+                  onClick={() => copyToClipboard("Your people are, same as today. The call rings your line first, exactly like it does now — nothing changes for the ones you catch. It's only when nobody picks up, after hours, mid-job, two calls at once during a storm, that it rolls to us instead of voicemail. We find out what happened and where, and get it to you.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
                 >
                   Copy
                 </button>
               </div>
-              <p className="text-[#57534E] leading-relaxed">
-                That’s actually awesome! We don't replace your agency — we plug directly into their ads with instant call &amp; chat response and ad-level attribution so you can both see the exact ROAS on every dollar spent.
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                Your people are, same as today. The call rings your line first, exactly like it does now — nothing changes for the ones you catch. It's only when nobody picks up, after hours, mid-job, two calls at once during a storm, that it rolls to us instead of voicemail. We find out what happened and where, and get it to you.
+              </p>
+              <p className="text-[11px] text-[#065F46] font-mono">
+                *Say it in that order.* "We answer your phone" sounds like a threat to an owner. "We catch the ones you'd have lost" doesn't.
               </p>
             </div>
 
-            {/* Objection 3 */}
-            <div className="rounded-lg border border-[#E7E5E4] bg-[#F5F5F4] p-4 space-y-2">
+            {/* Q5 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
               <div className="flex items-center justify-between">
-                <span className="font-mono font-bold text-[#111827]">"How much does it cost?"</span>
+                <span className="font-bold text-xs text-[#111827]">"I don't want a machine talking to my customers."</span>
                 <button
-                  onClick={() => copyToClipboard('We offer a straightforward pilot trial with zero long-term contracts. If it doesn\'t lock in emergency dispatches for your team, you don\'t pay. Open to a 2-min interactive walkthrough to see if it fits?')}
-                  className="bg-white hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4] shadow-sm"
+                  onClick={() => copyToClipboard("Fair, and that's not really what's happening here. Every call you'd normally pick up, you still pick up. The only ones that ever reach us are the ones that were headed to voicemail anyway — so the honest comparison isn't us against your guy. It's us against nothing.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
                 >
                   Copy
                 </button>
               </div>
-              <p className="text-[#57534E] leading-relaxed">
-                We offer a straightforward pilot trial with zero long-term contracts. If it doesn't lock in emergency dispatches for your team, you don't pay. Open to a 2-min interactive walkthrough to see if it fits?
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                Fair, and that's not really what's happening here. Every call you'd normally pick up, you still pick up. The only ones that ever reach us are the ones that were headed to voicemail anyway — so the honest comparison isn't us against your guy. It's us against nothing.
+              </p>
+            </div>
+
+            {/* Q6 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-xs text-[#111827]">"Will my customers know?"</span>
+                <button
+                  onClick={() => copyToClipboard("If they ask, yes — it'll tell them. Most people mid-emergency aren't asking, though; they just want someone to take it down and get a truck moving. It's not pretending to be human, and it doesn't need to.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
+                >
+                  Copy
+                </button>
+              </div>
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                If they ask, yes — it'll tell them. Most people mid-emergency aren't asking, though; they just want someone to take it down and get a truck moving. It's not pretending to be human, and it doesn't need to.
+              </p>
+            </div>
+
+            {/* Q7 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-xs text-[#111827]">"What if it can't answer something?"</span>
+                <button
+                  onClick={() => copyToClipboard("It takes the name, the number, and the situation, and hands the whole thing to you instead of guessing. It's built to capture, not to quote — it will never throw out a price or commit you to anything.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
+                >
+                  Copy
+                </button>
+              </div>
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                It takes the name, the number, and the situation, and hands the whole thing to you instead of guessing. It's built to capture, not to quote — it will never throw out a price or commit you to anything.
+              </p>
+            </div>
+
+            {/* Q8 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-xs text-[#111827]">"How do I get the lead?"</span>
+                <button
+                  onClick={() => copyToClipboard("A message with their name, number, and what they said — usually within seconds of them sending it. Email and push, at launch.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
+                >
+                  Copy
+                </button>
+              </div>
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                A message with their name, number, and what they said — usually within seconds of them sending it. Email and push, at launch.
+              </p>
+              <p className="text-[11px] text-[#78716C] italic">
+                If asked about SMS specifically: not in the first version — business texting has a registration requirement we'd set up separately.
+              </p>
+            </div>
+
+            {/* Q9 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-xs text-[#111827]">"Can it book the job on my calendar?"</span>
+                <button
+                  onClick={() => copyToClipboard("Not in this version. It captures and hands off; your person makes the call from there.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
+                >
+                  Copy
+                </button>
+              </div>
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                Not in this version. It captures and hands off; your person makes the call from there. <em>Say this plainly — do not imply booking.</em>
+              </p>
+            </div>
+
+            {/* Q10 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-xs text-[#111827]">"Does it work with my existing phone number?"</span>
+                <button
+                  onClick={() => copyToClipboard("Yes — your number stays exactly what it is. Calls only forward to us when nobody picks up, or after hours, or whatever rule actually makes sense for you.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
+                >
+                  Copy
+                </button>
+              </div>
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                Yes — your number stays exactly what it is. Calls only forward to us when nobody picks up, or after hours, or whatever rule actually makes sense for you.
+              </p>
+            </div>
+
+            {/* Q11 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-xs text-[#111827]">"Does it integrate with [Encircle / DASH / Xactimate / CRM]?"</span>
+                <button
+                  onClick={() => copyToClipboard("Let me check what that one actually supports instead of guessing — I'll get back to you today.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
+                >
+                  Copy
+                </button>
+              </div>
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                <strong>Don't answer this from memory.</strong> Say: <em>"Let me check what that one actually supports instead of guessing — I'll get back to you today."</em> Then actually check.
+              </p>
+            </div>
+
+            {/* Q12 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-xs text-[#111827]">"Spanish?"</span>
+                <button
+                  onClick={() => copyToClipboard("Let me check our active Spanish model routing for your market and get right back to you today.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
+                >
+                  Copy
+                </button>
+              </div>
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                Check before answering. Don't assume.
+              </p>
+            </div>
+
+            {/* Q13 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-xs text-[#111827]">"I already have a landing page."</span>
+                <button
+                  onClick={() => copyToClipboard("Good — then you already believe in the idea, which saves us a step. Real question is whether anything's actually answering on it at 11pm on a Sunday, and whether you ever find out about the visitor who looked and didn't call. If your page already does that, you don't need us.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
+                >
+                  Copy
+                </button>
+              </div>
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                Good — then you already believe in the idea, which saves us a step. Real question is whether anything's actually answering on it at 11pm on a Sunday, and whether you ever find out about the visitor who looked and didn't call. If your page already does that, you don't need us.
               </p>
             </div>
           </div>
+
+          {/* Section: Conversion Tracking */}
+          <div className="space-y-3">
+            <h4 className="font-mono text-xs font-bold text-[#065F46] uppercase tracking-wider border-b border-[#E7E5E4] pb-1">
+              Conversion Tracking
+            </h4>
+            <div className="rounded-lg border border-amber-200 bg-amber-50/50 p-3 text-[11px] text-amber-900 leading-relaxed">
+              <strong>Crucial Rule:</strong> If tracking isn't live & tested on an account, say <em>"Let me confirm exactly how that's wired for your account and come back to you."</em> Overclaiming here costs the client three weeks in when their agency asks why conversions dropped.
+            </div>
+
+            {/* T1 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-xs text-[#111827]">"Will this break my conversion tracking?"</span>
+                <button
+                  onClick={() => copyToClipboard("The most important question on this page — and the one your agency's going to ask on your behalf, whether you ask it yourself or not. Moving your traffic to a new page means the tracking has to move with it. That's a real step, not a footnote — but it's ours to handle, not yours to think about. Pretending otherwise is exactly how this goes sideways, so we don't.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
+                >
+                  Copy
+                </button>
+              </div>
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                The most important question on this page — and the one their agency's going to ask on their behalf, whether they ask it themselves or not. Moving your traffic to a new page means the tracking has to move with it. That's a real step, not a footnote — but it's ours to handle, not yours to think about. Pretending otherwise is exactly how this goes sideways, so we don't.
+              </p>
+            </div>
+
+            {/* T2 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-xs text-[#111827]">"How will I know if it's working?"</span>
+                <button
+                  onClick={() => copyToClipboard("Every lead comes back attached to the click that produced it. The moment someone taps your ad, Google stamps that click with an ID — we hold onto it and store it right alongside the lead. So what lands in your inbox isn't just a name and a number. It's a name, a number, and the exact ad and keyword that brought them to you.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
+                >
+                  Copy
+                </button>
+              </div>
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                Every lead comes back attached to the click that produced it. The moment someone taps your ad, Google stamps that click with an ID — we hold onto it and store it right alongside the lead. So what lands in your inbox isn't just a name and a number. It's a name, a number, and the exact ad and keyword that brought them to you.
+              </p>
+            </div>
+
+            {/* T3 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-xs text-[#111827]">"Will my conversions still show up in Google Ads?"</span>
+                <button
+                  onClick={() => copyToClipboard("Yes — that's the whole point of holding onto the click ID. Every captured lead gets sent back into your Google Ads account as a conversion, so your bidding keeps learning from real results. Skip that step and your campaigns don't just stall. They get worse over time.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
+                >
+                  Copy
+                </button>
+              </div>
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                Yes — that's the whole point of holding onto the click ID. Every captured lead gets sent back into your Google Ads account as a conversion, so your bidding keeps learning from real results. Skip that step and your campaigns don't just stall. They get worse over time.
+              </p>
+              <p className="text-[11px] text-[#78716C]">
+                <em>Technical reference (if agency asks):</em> GCLID captured on landing & stored with lead, conversion events on page for chat/call taps, Google call reporting, returned via Google Data Manager.
+              </p>
+            </div>
+
+            {/* T4 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-xs text-[#111827]">"Can you tell me which leads actually became jobs?"</span>
+                <button
+                  onClick={() => copyToClipboard("Only if you tell us. We capture the lead and the click that brought it in — whether it turned into a signed job lives on your end. But if you're willing to mark off which ones closed, that flows back to Google as a stronger signal, and your ad spend gets sharper because of it.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
+                >
+                  Copy
+                </button>
+              </div>
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                Only if you tell us. We capture the lead and the click that brought it in — whether it turned into a signed job lives on your end. But if you're willing to mark off which ones closed, that flows back to Google as a stronger signal, and your ad spend gets sharper because of it.
+              </p>
+            </div>
+
+            {/* T5 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-xs text-[#111827]">"My agency runs my ads. Will they have a problem?"</span>
+                <button
+                  onClick={() => copyToClipboard("Best move is to get ahead of it rather than dodge it — happy to jump on a call with them directly and walk through exactly how the tracking's set up before anything goes live. Most agencies come around fast once they see it reports conversions properly, because it's really their numbers looking better too.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
+                >
+                  Copy
+                </button>
+              </div>
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                Best move is to get ahead of it rather than dodge it — happy to jump on a call with them directly and walk through exactly how the tracking's set up before anything goes live. Most agencies come around fast once they see it reports conversions properly, because it's really their numbers looking better too.
+              </p>
+            </div>
+
+            {/* T6 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-xs text-[#111827]">"Will a different number mess up my Google listing?"</span>
+                <button
+                  onClick={() => copyToClipboard("Fair question, and usually one that comes from getting burned before. Here's exactly how ours works: your real number is what's actually on the page. If we turn on Google's own call reporting, Google swaps in a forwarding number just for visitors who arrived through your ad — everyone else, every search engine, still sees your real number. Your Google Business Profile, your directory listings — none of that changes. It's Google's own free feature, not some third-party tracking number.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
+                >
+                  Copy
+                </button>
+              </div>
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                Fair question, and usually one that comes from getting burned before. Here's exactly how ours works: your real number is what's actually on the page. If we turn on Google's own call reporting, Google swaps in a forwarding number just for visitors who arrived through your ad — everyone else, every search engine, still sees your real number. Your Google Business Profile, your directory listings — none of that changes. It's Google's own free feature, not some third-party tracking number.
+              </p>
+            </div>
+          </div>
+
+          {/* Section: Pricing */}
+          <div className="space-y-3">
+            <h4 className="font-mono text-xs font-bold text-[#065F46] uppercase tracking-wider border-b border-[#E7E5E4] pb-1">
+              Pricing &amp; Plans
+            </h4>
+
+            {/* Table */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white overflow-hidden text-xs shadow-sm font-mono">
+              <table className="w-full text-left">
+                <thead className="bg-[#F5F5F4] border-b border-[#E7E5E4] text-[#57534E]">
+                  <tr>
+                    <th className="p-2.5">Plan</th>
+                    <th className="p-2.5">Build Fee</th>
+                    <th className="p-2.5">Monthly</th>
+                    <th className="p-2.5">Minutes</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[#E7E5E4]">
+                  <tr>
+                    <td className="p-2.5 font-bold text-[#111827]">Desk (page + chat, no phone)</td>
+                    <td className="p-2.5">$997</td>
+                    <td className="p-2.5">$199</td>
+                    <td className="p-2.5 text-[#78716C]">—</td>
+                  </tr>
+                  <tr className="bg-[#ECFDF5]/40 font-semibold">
+                    <td className="p-2.5 text-[#065F46]">Desk + Answer (Full System)</td>
+                    <td className="p-2.5">$1,497</td>
+                    <td className="p-2.5">$399</td>
+                    <td className="p-2.5">300 mins</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div className="p-2.5 bg-[#F5F5F4] text-[11px] text-[#57534E] border-t border-[#E7E5E4]">
+                Overage: $0.55/min on Desk + Answer. Capped at 2x monthly fee (bill can't run away in storm month).
+              </div>
+            </div>
+
+            {/* P1 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-xs text-[#111827]">"Why is there a setup fee?"</span>
+                <button
+                  onClick={() => copyToClipboard("Because there's real work that happens before any of this goes live — the page itself, copy written for your specific services and area, the call flow, testing it against scenarios that actually come up. A landing page alone from an agency runs $1,500 to $5,000, and that one doesn't even answer the phone.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
+                >
+                  Copy
+                </button>
+              </div>
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                Because there's real work that happens before any of this goes live — the page itself, copy written for your specific services and area, the call flow, testing it against scenarios that actually come up. A landing page alone from an agency runs $1,500 to $5,000, and that one doesn't even answer the phone.
+              </p>
+            </div>
+
+            {/* P2 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-xs text-[#111827]">"Why is this more than [Rosie / Chatbase / $49 tool]?"</span>
+                <button
+                  onClick={() => copyToClipboard("Different category, not a markup. Those are tools you configure yourself, and each one does a single piece — chat, or phone, never both. None of them is the actual page your ad lands on, and none of them can tie a lead back to the click that paid for it, because they don't own the page and never see the ad data in the first place.\n\nThe comparison that actually matters isn't against a $49 widget anyway. It's against what you're already paying per click.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
+                >
+                  Copy
+                </button>
+              </div>
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                Different category, not a markup. Those are tools you configure yourself, and each one does a single piece — chat, or phone, never both. None of them is the actual page your ad lands on, and none of them can tie a lead back to the click that paid for it, because they don't own the page and never see the ad data in the first place. The comparison that actually matters isn't against a $49 widget anyway. It's against what you're already paying per click.
+              </p>
+            </div>
+
+            {/* P3 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-xs text-[#111827]">"Do I still need my answering service?"</span>
+                <button
+                  onClick={() => copyToClipboard("We're a backstop on the calls that get missed, not a front desk. If your service is dispatching crews and dealing with adjusters, keep it — that's not what we do. If it's mostly taking messages on calls your own people never got to, that's the same job we're doing. Worth figuring out which one's true before deciding anything.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
+                >
+                  Copy
+                </button>
+              </div>
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                We're a backstop on the calls that get missed, not a front desk. If your service is dispatching crews and dealing with adjusters, keep it — that's not what we do. If it's mostly taking messages on calls your own people never got to, that's the same job we're doing. Worth figuring out which one's true before deciding anything.
+              </p>
+            </div>
+
+            {/* P4 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-xs text-[#111827]">"Is there a contract?"</span>
+                <button
+                  onClick={() => copyToClipboard("Month to month — cancel whenever you want.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
+                >
+                  Copy
+                </button>
+              </div>
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                Month to month — cancel whenever you want. (The bigger platforms in this space run annual auto-renew contracts — worth mentioning if they've been burned before).
+              </p>
+            </div>
+          </div>
+
+          {/* Section: Trust — The Hard Ones */}
+          <div className="space-y-3">
+            <h4 className="font-mono text-xs font-bold text-[#065F46] uppercase tracking-wider border-b border-[#E7E5E4] pb-1">
+              Trust — The Hard Ones
+            </h4>
+
+            {/* TR1 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-xs text-[#111827]">"How long have you been doing this?"</span>
+                <button
+                  onClick={() => copyToClipboard("We're new — you'd be one of the first, and that's exactly why the offer looks the way it does.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
+                >
+                  Copy
+                </button>
+              </div>
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                Straight answer, no hedging: <em>"We're new — you'd be one of the first, and that's exactly why the offer looks the way it does."</em> Then move to the demo. <strong>Do not perform confidence you don't have; contractors detect it instantly.</strong>
+              </p>
+            </div>
+
+            {/* TR2 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-xs text-[#111827]">"Who else have you done this for?"</span>
+                <button
+                  onClick={() => copyToClipboard("Nobody in your market yet — and I'm not going to invent a list to make you feel better about that. What I can do instead is show you the thing working right now, and build a version with your name on it before you pay a cent, so you're deciding on something real instead of a promise.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
+                >
+                  Copy
+                </button>
+              </div>
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                <em>"Nobody in your market yet — and I'm not going to invent a list to make you feel better about that. What I can do instead is show you the thing working right now, and build a version with your name on it before you pay a cent, so you're deciding on something real instead of a promise."</em>
+              </p>
+              <p className="text-[11px] text-[#065F46] font-mono">
+                That answer converts better than a vague dodge. The offer to build first is the whole play.
+              </p>
+            </div>
+
+            {/* TR3 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-xs text-[#111827]">"What if it says something wrong to a customer?"</span>
+                <button
+                  onClick={() => copyToClipboard("It's built to take details, not to hand out quotes, commitments, or advice. Worst realistic failure is it captures a lead a little awkwardly, and you call them back to smooth it over. It can't price a job. It can't promise a crew.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
+                >
+                  Copy
+                </button>
+              </div>
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                It's built to take details, not to hand out quotes, commitments, or advice. Worst realistic failure is it captures a lead a little awkwardly, and you call them back to smooth it over. It can't price a job. It can't promise a crew.
+              </p>
+            </div>
+          </div>
+
+          {/* Section: Legal */}
+          <div className="space-y-3">
+            <h4 className="font-mono text-xs font-bold text-[#065F46] uppercase tracking-wider border-b border-[#E7E5E4] pb-1">
+              Legal &amp; Compliance
+            </h4>
+
+            {/* L1 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-xs text-[#111827]">"Is this even legal?"</span>
+                <button
+                  onClick={() => copyToClipboard("Yes — for answering your own phone, this is squarely legal. The rules people are actually worried about, robocall law, govern calls a business places, not calls it answers. We only ever answer.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
+                >
+                  Copy
+                </button>
+              </div>
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                Yes — for answering your own phone, this is squarely legal. The rules people are actually worried about, robocall law, govern calls a business <em>places</em>, not calls it answers. We only ever answer.
+              </p>
+            </div>
+
+            {/* L2 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-xs text-[#111827]">"Can it call people back for me?"</span>
+                <button
+                  onClick={() => copyToClipboard("No, and we won't build it. Calling consumers with an automated voice carries penalties that stack up per call — not a risk worth either of us taking. Your person makes that call. We just make sure they've got the lead in hand within seconds of it coming in.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
+                >
+                  Copy
+                </button>
+              </div>
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                No, and we won't build it. Calling consumers with an automated voice carries penalties that stack up per call — not a risk worth either of us taking. Your person makes that call. We just make sure they've got the lead in hand within seconds of it coming in.
+              </p>
+            </div>
+          </div>
+
+          {/* Section: Operations */}
+          <div className="space-y-3">
+            <h4 className="font-mono text-xs font-bold text-[#065F46] uppercase tracking-wider border-b border-[#E7E5E4] pb-1">
+              Operations &amp; Setup
+            </h4>
+
+            {/* O1 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-xs text-[#111827]">"What do you need from me?"</span>
+                <button
+                  onClick={() => copyToClipboard("Your services, your service area, your hours, how you want emergency versus non-emergency calls handled, and the number to forward from. That's the whole intake conversation — and it's short.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
+                >
+                  Copy
+                </button>
+              </div>
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                Your services, your service area, your hours, how you want emergency versus non-emergency calls handled, and the number to forward from. That's the whole intake conversation — and it's short.
+              </p>
+            </div>
+
+            {/* O2 */}
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-2 shadow-sm">
+              <div className="flex items-center justify-between">
+                <span className="font-bold text-xs text-[#111827]">"Do I have to change my ads?"</span>
+                <button
+                  onClick={() => copyToClipboard("One change, and it's small: point the ad at the new page instead of your homepage. That's the whole thing. Nothing about your campaigns or your budget changes.")}
+                  className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#111827] px-2 py-1 rounded text-[10px] font-mono border border-[#E7E5E4]"
+                >
+                  Copy
+                </button>
+              </div>
+              <p className="text-xs text-[#57534E] leading-relaxed">
+                One change, and it's small: point the ad at the new page instead of your homepage. That's the whole thing. Nothing about your campaigns or your budget changes.
+              </p>
+            </div>
+          </div>
+
+          {/* Section: 7 Qualifying Questions */}
+          <div className="space-y-3">
+            <h4 className="font-mono text-xs font-bold text-[#065F46] uppercase tracking-wider border-b border-[#E7E5E4] pb-1">
+              Qualify Them — Ask These Early
+            </h4>
+            <div className="rounded-lg border border-[#E7E5E4] bg-white p-4 space-y-3 text-xs shadow-sm">
+              <div className="space-y-1 border-b border-[#E7E5E4] pb-2">
+                <div className="font-bold text-[#111827]">1. Are you running paid ads right now?</div>
+                <div className="text-[#57534E]">If no → disqualify politely. No traffic, no product.</div>
+              </div>
+              <div className="space-y-1 border-b border-[#E7E5E4] pb-2">
+                <div className="font-bold text-[#111827]">2. Where do those ads point?</div>
+                <div className="text-[#57534E]">Homepage = perfect fit. Existing dedicated page = harder sell, dig into whether anything answers on it.</div>
+              </div>
+              <div className="space-y-1 border-b border-[#E7E5E4] pb-2">
+                <div className="font-bold text-[#111827]">3. What happens to a call at 11pm?</div>
+                <div className="text-[#57534E]">Voicemail = the whole pitch. Existing answering service = ask what it costs and what they actually do.</div>
+              </div>
+              <div className="space-y-1 border-b border-[#E7E5E4] pb-2">
+                <div className="font-bold text-[#111827]">4. Who picks up the phone during the day?</div>
+                <div className="text-[#57534E]">Owner-operator answering from a job site is the strongest buyer in this segment.</div>
+              </div>
+              <div className="space-y-1 border-b border-[#E7E5E4] pb-2">
+                <div className="font-bold text-[#111827]">5. Roughly what's the average job worth?</div>
+                <div className="text-[#57534E]">Not to price them — to let them do the math themselves out loud. That math is the close.</div>
+              </div>
+              <div className="space-y-1 border-b border-[#E7E5E4] pb-2">
+                <div className="font-bold text-[#111827]">6. Who manages your ads — you or an agency?</div>
+                <div className="text-[#57534E]">Determines whether there's a second stakeholder to bring in, and who you'll be coordinating tracking setup with.</div>
+              </div>
+              <div className="space-y-1">
+                <div className="font-bold text-[#111827]">7. Do you currently know which ads produce your jobs?</div>
+                <div className="text-[#57534E]">If no or "not really," that's a second thing you're fixing and worth naming.</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Section: What NOT to Say */}
+          <div className="rounded-xl border border-red-200 bg-red-50/50 p-4 space-y-2 text-xs">
+            <div className="font-mono font-bold text-red-800 uppercase tracking-wider text-[11px]">
+              What NOT to Say (Hard Guardrails)
+            </div>
+            <ul className="list-disc pl-4 space-y-1.5 text-red-950/90 leading-relaxed text-xs">
+              <li>Any number about results, conversion lift, or leads recovered. We haven't measured any.</li>
+              <li>Any client name or "a company like yours."</li>
+              <li>"It books appointments." It doesn't.</li>
+              <li>"It calls them back." It doesn't and won't.</li>
+              <li>"Guaranteed" anything, unless approved and you can state exact terms.</li>
+              <li>Any tracking claim that hasn't been built &amp; tested in a real ad account.</li>
+              <li>Anything about our own scale, team size, or how many clients we run.</li>
+            </ul>
+            <p className="text-[11px] text-red-900 italic pt-1 border-t border-red-200">
+              When you don't know: <strong>"I don't want to guess on that — let me check and come back to you today."</strong> Then do it.
+            </p>
+          </div>
+
         </div>
       )}
 
