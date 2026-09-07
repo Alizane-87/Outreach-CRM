@@ -548,7 +548,7 @@ export default function OutreachCRM() {
                   <th className="py-3 px-3">Pipeline Status</th>
                   <th className="py-3 px-3">Assigned Rep</th>
                   <th className="py-3 px-3">Contractor &amp; Domain</th>
-                  <th className="py-3 px-3">Location</th>
+                  <th className="py-3 px-3">Ad Location / Metro</th>
                   <th className="py-3 px-3 text-center">Ads</th>
                   <th className="py-3 px-3 text-center">Outreach Channels</th>
                   <th className="py-3 px-3">Primary Niche</th>
@@ -585,7 +585,7 @@ export default function OutreachCRM() {
                           <select
                             value={lead.status || 'to_contact'}
                             onChange={e => updateLead(lead.id, { status: e.target.value })}
-                            className={`text-xs font-mono rounded-md px-2.5 py-1 border outline-none cursor-pointer ${statusSelectClass}`}
+                            className={`text-[11px] font-mono rounded px-2 py-1 outline-none border transition-colors ${statusSelectClass}`}
                           >
                             <option value="to_contact" className="bg-white text-[#111827]">To Contact</option>
                             <option value="dm_sent" className="bg-white text-[#111827]">Outbound Sent</option>
@@ -662,9 +662,9 @@ export default function OutreachCRM() {
                               LinkedIn
                             </a>
                             <button
-                              onClick={() => copyToClipboard(lead.dm_pitch_script, 'Pitch Script Copied')}
-                              className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#57534E] hover:text-[#111827] px-2 py-1 rounded border border-[#E7E5E4] text-[10px] transition-colors"
-                              title="Copy Conversion Desk Pitch"
+                              onClick={() => copyToClipboard(lead.dm_pitch_script, 'Chatbot Pitch Copied')}
+                              className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#57534E] hover:text-[#111827] px-2 py-1 rounded border border-[#E7E5E4] text-[10px] transition-colors font-medium"
+                              title="Copy Chatbot DM Pitch Script"
                             >
                               Pitch
                             </button>
@@ -932,6 +932,31 @@ export default function OutreachCRM() {
             </div>
             <p className="text-amber-950/90 leading-relaxed text-xs">
               Check before quoting: $250 paid pilot credit against build fee, founding-client offer (waived build, $149/mo locked 12 mo, first 5 clients), 30-day money-back guarantee, live phone number availability, and <strong>whether page captures GCLID & fires conversion events yet</strong>. If unconfirmed, don't mention it. Silence is recoverable; a walked-back promise isn't.
+            </p>
+          </div>
+
+          {/* Active DM Outreach Script Card */}
+          <div className="rounded-xl border border-[#A7F3D0] bg-[#ECFDF5] p-4 space-y-2.5 text-xs shadow-sm">
+            <div className="flex items-center justify-between">
+              <div className="font-mono font-bold text-[#065F46] uppercase tracking-wider text-[11px] flex items-center gap-1.5">
+                <span>Active DM Script — Website AI Chatbot (14-Day Free Trial)</span>
+              </div>
+              <button
+                onClick={() => copyToClipboard("Saw your ads running in [metro] — most people who click through won't call. They'll read, leave, and you've paid for that click either way.\n\nWe built a chatbot that catches those visitors before they bounce, grabs their contact info, and alerts you the moment it comes in — plus a report on every chat and lead, so you can see who's actually interested. It's actually live on our own site right now if you want to try it yourself: alizanelabs.site.\n\nFree for 14 days — just one script tag for whoever manages your site to add to the header, 2 minutes and it's live. Want me to set it up?", "Chatbot Template Copied")}
+                className="bg-[#065F46] hover:bg-[#047857] text-white px-2.5 py-1 rounded text-[10px] font-mono shadow-sm transition-all"
+              >
+                Copy Template
+              </button>
+            </div>
+            <p className="text-[#065F46] leading-relaxed font-mono text-[11px] whitespace-pre-line bg-white/70 rounded p-2.5 border border-[#A7F3D0]/70">
+              {`Saw your ads running in [metro] — most people who click through won't call. They'll read, leave, and you've paid for that click either way.
+
+We built a chatbot that catches those visitors before they bounce, grabs their contact info, and alerts you the moment it comes in — plus a report on every chat and lead, so you can see who's actually interested. It's actually live on our own site right now if you want to try it yourself: alizanelabs.site.
+
+Free for 14 days — just one script tag for whoever manages your site to add to the header, 2 minutes and it's live. Want me to set it up?`}
+            </p>
+            <p className="text-[10px] text-[#065F46]/80 font-mono">
+              Tip: Click the "Pitch" button next to any lead in the table to get this exact message with their verified metro automatically plugged in!
             </p>
           </div>
 
