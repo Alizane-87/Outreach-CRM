@@ -2,15 +2,57 @@ import { NextResponse } from 'next/server';
 import { sql } from '@/lib/db';
 import fs from 'fs';
 import path from 'path';
+import contractorsData from '../../../../data/contractors.json';
 
 export const dynamic = 'force-dynamic';
+
+const freshMap = new Map(
+  contractorsData.map((c: any) => [
+    c.id,
+    {
+      location: c.location,
+      dm_pitch_script: c.dmPitchScript || c.dm_pitch_script,
+    },
+  ])
+);
 
 export async function GET(request: Request) {
   try {
     try {
       const leads = await sql`SELECT * FROM contractor_leads ORDER BY active_ads_count DESC, id ASC`;
       if (leads && leads.length > 0) {
-        return NextResponse.json({ success: true, leads, source: 'postgres' });
+        // Overlay authoritative fresh pitch script and enriched location
+        const enrichedLeads = leads.map((l: any) => {
+          const fresh = freshMap.get(l.id);
+          return {
+            ...l,
+            location: fresh?.location || l.location,
+            dm_pitch_script: fresh?.dm_pitch_script || l.dm_pitch_script,
+          };
+        });
+
+        // Background update Neon Postgres to permanently sync new scripts
+        (async () => {
+          try {
+            for (const l of leads) {
+              const fresh = freshMap.get(l.id);
+              if (
+                fresh &&
+                (l.dm_pitch_script !== fresh.dm_pitch_script || l.location !== fresh.location)
+              ) {
+                await sql`
+                  UPDATE contractor_leads 
+                  SET dm_pitch_script = ${fresh.dm_pitch_script}, location = ${fresh.location}, updated_at = NOW() 
+                  WHERE id = ${l.id}
+                `;
+              }
+            }
+          } catch (syncErr) {
+            console.warn('Background Neon DB sync notice:', syncErr);
+          }
+        })();
+
+        return NextResponse.json({ success: true, leads: enrichedLeads, source: 'postgres_enriched' });
       }
     } catch (dbError: any) {
       console.warn('Postgres query notice, using local dataset fallback:', dbError.message);

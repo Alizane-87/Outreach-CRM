@@ -71,6 +71,18 @@ interface WeeklyReportData {
   }>;
 }
 
+const getLeadPitchScript = (lead: ContractorLead) => {
+  if (
+    lead.dm_pitch_script &&
+    !lead.dm_pitch_script.includes('Conversion Desk') &&
+    !lead.dm_pitch_script.includes('how are you tracking')
+  ) {
+    return lead.dm_pitch_script;
+  }
+  const metro = lead.location || 'your area';
+  return `Saw your ads running in ${metro} — most people who click through won't call. They'll read, leave, and you've paid for that click either way.\n\nWe built a chatbot that catches those visitors before they bounce, grabs their contact info, and alerts you the moment it comes in — plus a report on every chat and lead, so you can see who's actually interested. It's actually live on our own site right now if you want to try it yourself: alizanelabs.site.\n\nFree for 14 days — just one script tag for whoever manages your site to add to the header, 2 minutes and it's live. Want me to set it up?`;
+};
+
 export default function OutreachCRM() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [pinInput, setPinInput] = useState('');
@@ -90,7 +102,8 @@ export default function OutreachCRM() {
   const [toastMsg, setToastMsg] = useState('');
 
   useEffect(() => {
-    const savedAuth = localStorage.getItem('alizane_crm_authenticated');
+    localStorage.removeItem('alizane_crm_authenticated');
+    const savedAuth = sessionStorage.getItem('alizane_crm_authenticated');
     if (savedAuth === 'true') {
       setIsAuthenticated(true);
     }
@@ -101,7 +114,7 @@ export default function OutreachCRM() {
     const entered = pinInput.trim().toUpperCase();
     if (entered === 'ALIZANE2026' || entered === '1234') {
       setIsAuthenticated(true);
-      localStorage.setItem('alizane_crm_authenticated', 'true');
+      sessionStorage.setItem('alizane_crm_authenticated', 'true');
       return;
     }
     try {
@@ -113,7 +126,7 @@ export default function OutreachCRM() {
       const data = await res.json();
       if (data.success) {
         setIsAuthenticated(true);
-        localStorage.setItem('alizane_crm_authenticated', 'true');
+        sessionStorage.setItem('alizane_crm_authenticated', 'true');
       } else {
         alert('Invalid access PIN. Try default: ALIZANE2026');
       }
@@ -390,6 +403,18 @@ export default function OutreachCRM() {
             >
               Refresh
             </button>
+            <button
+              onClick={() => {
+                sessionStorage.removeItem('alizane_crm_authenticated');
+                localStorage.removeItem('alizane_crm_authenticated');
+                setIsAuthenticated(false);
+                setPinInput('');
+              }}
+              className="inline-flex items-center rounded-lg border border-[#E7E5E4] bg-white hover:bg-rose-50 hover:text-rose-700 hover:border-rose-200 px-3 py-2 text-[#78716C] transition-all text-xs font-mono shadow-sm"
+              title="Lock Desk and require PIN"
+            >
+              Lock Desk
+            </button>
           </div>
         </div>
 
@@ -662,7 +687,7 @@ export default function OutreachCRM() {
                               LinkedIn
                             </a>
                             <button
-                              onClick={() => copyToClipboard(lead.dm_pitch_script, 'Chatbot Pitch Copied')}
+                              onClick={() => copyToClipboard(getLeadPitchScript(lead), 'Chatbot Pitch Copied')}
                               className="bg-[#F5F5F4] hover:bg-[#E7E5E4] text-[#57534E] hover:text-[#111827] px-2 py-1 rounded border border-[#E7E5E4] text-[10px] transition-colors font-medium"
                               title="Copy Chatbot DM Pitch Script"
                             >
